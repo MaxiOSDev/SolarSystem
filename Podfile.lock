@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (4.7.2)
+  - JLStickerTextView (0.1.2)
+  - Nuke (6.1.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - JLStickerTextView (from `https://github.com/luiyezheng/JLStickerTextView.git`)
+  - Nuke
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Nuke
+
+EXTERNAL SOURCES:
+  JLStickerTextView:
+    :git: https://github.com/luiyezheng/JLStickerTextView.git
+
+CHECKOUT OPTIONS:
+  JLStickerTextView:
+    :commit: a037b5ae054de396278cd052263402ef52b5d1c7
+    :git: https://github.com/luiyezheng/JLStickerTextView.git
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  JLStickerTextView: 99158380c95dc5455568892beb81d0529f3a547d
+  Nuke: bf5d58b2d95ff15cb170c231fe6002d706be77e1
+
+PODFILE CHECKSUM: e80b1abb0bbb23d504439b0aad3ab30cf6e9854a
+
+COCOAPODS: 1.5.0
