@@ -8,6 +8,7 @@
 
 import Foundation
 
+// How I end up creating my urls with search and for the future, page.
 protocol Endpoint {
     var base: String { get }
     
@@ -34,7 +35,6 @@ extension Endpoint {
 enum Gallery {
     case search(term: String)
     case page(link: URL?)
- //   case collection(mediaType: String, nasaId: String)
 }
 
 extension Gallery: Endpoint {
@@ -46,7 +46,6 @@ extension Gallery: Endpoint {
     var path: String {
         switch self {
         case .search, .page: return "/search"
-     //   case .collection(let mediaType, let nasaId): return "/\(mediaType)/\(nasaId)/collection.json"
         }
     }
     
@@ -56,14 +55,12 @@ extension Gallery: Endpoint {
             return [URLQueryItem(name: "q", value: term)]
         case .page(let link):
             return [URLQueryItem(name: "q", value: link?.absoluteString)]
-     //   case .collection:
-      //      return []
         }
     }
 }
 
-//https://images-assets.nasa.gov/video/Space-to-Ground_171_170407/collection.json
-//https://images-api.nasa.gov/video/Space-to-Ground_171_170407/collection.json
+
+
 
 
 

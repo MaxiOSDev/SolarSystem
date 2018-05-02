@@ -13,11 +13,13 @@ import Nuke
 class GalleryDatasource: NSObject, UICollectionViewDataSource {
 
     private let collectionView: UICollectionView
-
+    // This pageData array holds the data
     private var pageData = [GallerySearchResult]()
     private var client = NASAClient()
+    
+    // NukeManager singlton
     let nukeManager = Nuke.Manager.shared
-    private var newData: GalleryData?
+    
     let pendingOperations = PendingOperations()
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -35,6 +37,8 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCell", for: indexPath) as! GalleryCell
+        // In order to get all the way to my data I have to use a bunch of for loops.
+        // If there is a better way please let me know
             for result in pageData {
                 let items = result.collection.items
                 
@@ -43,15 +47,11 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
                     let viewModel = GalleryCellViewModel(gallery: data)
                     cell.configure(with: viewModel)
                     
+                    // Checks if the imageState is .placeholder. The idea is that the imageState gets changed to .downloaded within GalleryImageOperation.swift
                     if data.imageState == .placeholder {
-                        
                         downloadImageData(for: data, atIndexPath: indexPath)
                    //     print("Each Item here: \(data.title), \(data.imageState), \(data.imageURL)\n")
-                    } else {
-               //         print("Worked? \(data.title), \(data.imageState) \(data.imageURL)\n")
                     }
-                    
-                    
                 }
 
             }
@@ -82,6 +82,7 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
            return items[indexPath.row] = object
     }
 
+    // The following is the method. Yes. The method I learnt from the courses, and I used it in this project.
     func downloadImageData(for item: GalleryData, atIndexPath indexPath: IndexPath) {
         if let _ = pendingOperations.downloadsInProgress[indexPath] {
             return
@@ -93,11 +94,11 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
                 if downloader.isCancelled {
                     return
                 }
-                
+                // Here If you uncomment the print statement below you can see that the downloader.data indeed did change.
+                // But the collectionView does not change, and the original GalleryData within cellForItem is still .placeholder not .downloaded.
                 DispatchQueue.main.async {
                     self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
             //        print("Inside downloadImageData: \(downloader.data.title),\(downloader.data.imageURL), \(downloader.data.imageState)\n")
-                    self.newData = downloader.data
                     self.collectionView.reloadItems(at: [indexPath])
                 }
             }
@@ -108,30 +109,33 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
 
     }
     
-    func downloadNextPage(for galleryResult: GallerySearchResult, atIndexPath indexPath: IndexPath) {
-        if let _ = pendingOperations.downloadsInProgress[indexPath] {
-            return
-        }
-        for data in pageData {
-            let downloader = NASAGalleryOperation(gallery: data, client: client)
-            
-            downloader.completionBlock = {
-                if downloader.isCancelled {
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    
-                    self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
-                    
-                    self.collectionView.reloadItems(at: [indexPath])
-                }
-            }
-            pendingOperations.downloadsInProgress[indexPath] = downloader
-            pendingOperations.downloadQueue.addOperation(downloader)
-        }
-
-    }
+    // Following method reserved for future use but and is not used
+    
+    
+//    func downloadNextPage(for galleryResult: GallerySearchResult, atIndexPath indexPath: IndexPath) {
+//        if let _ = pendingOperations.downloadsInProgress[indexPath] {
+//            return
+//        }
+//        for data in pageData {
+//            let downloader = NASAGalleryOperation(gallery: data, client: client)
+//
+//            downloader.completionBlock = {
+//                if downloader.isCancelled {
+//                    return
+//                }
+//
+//                DispatchQueue.main.async {
+//
+//                    self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
+//
+//                    self.collectionView.reloadItems(at: [indexPath])
+//                }
+//            }
+//            pendingOperations.downloadsInProgress[indexPath] = downloader
+//            pendingOperations.downloadQueue.addOperation(downloader)
+//        }
+//
+//    }
 }
 
 

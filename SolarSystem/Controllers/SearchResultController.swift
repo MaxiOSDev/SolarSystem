@@ -12,6 +12,7 @@ class SearchResultController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    
     lazy var dataSource: GalleryDatasource = {
        return GalleryDatasource(collectionView: collectionView)
     }()
@@ -19,7 +20,7 @@ class SearchResultController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = dataSource
-
+        
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let screenWidth = UIScreen.main.bounds.width
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)

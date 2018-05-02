@@ -22,14 +22,14 @@ class LandingViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    // Calls helper
     @IBAction func featureTapped(_ sender: UIButton) {
         buttonTapped(sender)
     }
     
-    
     // MARK: - Helpers
     func buttonTapped(_ sender: UIButton) {
+        // Each button has a tag, and depending on the tag, a segue will happen. This was before when the buttons were actually tap gestures. Going to uncomplicate it by just making seguing from button to appropriate VC.
         switch sender.tag {
         case 0: performSegue(withIdentifier: "showGalleryVC", sender: self)
         case 1: print("showRoverVC")

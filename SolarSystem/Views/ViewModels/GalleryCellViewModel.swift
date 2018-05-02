@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 struct GalleryCellViewModel {
-    static let shared = GalleryCellViewModel(gallery: nil)
     var image: UIImage
     let title: String
     

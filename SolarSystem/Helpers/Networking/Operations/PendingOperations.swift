@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Taught from iTunesClient
 class PendingOperations {
     var downloadsInProgress = [IndexPath: Operation]()
     

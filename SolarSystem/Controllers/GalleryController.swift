@@ -8,27 +8,35 @@
 
 import UIKit
 
+// This controller used to have the collection view in it. But I couldn't figure out how to smoothy get the datasource to transition the way I wanted it to, so I added in another VC with a fade in transition. I also pass data through preparForSegue.
 class GalleryController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // The client
     let client = NASAClient()
+    // Input text stored property from textfield that comes up with keyboard.
+    
     var inputText: String = ""
+    
+    // Custom view created to only come up with keyboard
      var customView: UIView = {
         let accessoryView = UIView(frame: .zero)
         accessoryView.backgroundColor = .red
         return accessoryView
     }()
     
+    // NOT Cancel. Search button. Copy and pasted code.
     var cancelButton: UIButton = {
         let cancelButton = UIButton(type: .custom)
-        cancelButton.setTitle("Cancel", for: .normal)
+        cancelButton.setTitle("Search", for: .normal)
         cancelButton.setTitleColor(.black, for: .normal)
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped(sender:)), for: .touchUpInside)
         cancelButton.showsTouchWhenHighlighted = true
         return cancelButton
     }()
     
+    // Textfield that will be inside of customView
      var textField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
         textField.backgroundColor = .white
@@ -37,6 +45,7 @@ class GalleryController: UIViewController {
         return textField
     }()
     
+    // Temporary text field so I can have it become the first responder and pull up the keyboard.
     var tempTextField = UITextField(frame: .zero)
     
     override func viewDidLoad() {
@@ -61,6 +70,7 @@ class GalleryController: UIViewController {
         performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
     }
     
+    // Adds the view to the keyboard as the inputAccessoryView
     func addAccessory() {
         customView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 45)
         customView.translatesAutoresizingMaskIntoConstraints = false
@@ -93,6 +103,7 @@ extension GalleryController: UITextFieldDelegate, UICollectionViewDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == tempTextField {
+            // The textfields text inside the customView is now the tempTextfields text
             self.textField.text = (textField.text ?? "") + string
         }
         return true
@@ -100,12 +111,13 @@ extension GalleryController: UITextFieldDelegate, UICollectionViewDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let textFieldText = textField.text, !textFieldText.isEmpty else { return }
-        inputText = textFieldText
+        inputText = textFieldText // For the query in my api call. For example: https://images-api.nasa.gov/search?q=(inputText)
         performSegue(withIdentifier: "searchSegue", sender: self)
-        self.textField.text = ""
+        self.textField.text = "" // Then makes text empty string
         tempTextField.resignFirstResponder()
     }
     
+    // Passes data with results from api call using that input text.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "searchSegue" {
             if let navController = segue.destination as? UINavigationController {
@@ -113,7 +125,7 @@ extension GalleryController: UITextFieldDelegate, UICollectionViewDelegate {
                 client.search(withTerm: inputText) { [weak self] result in
                     switch result {
                     case .success(let results):
-                        
+                    
                         resultVC.dataSource.pageUpdate(with: [results])
                         resultVC.collectionView.reloadData()
                     case .failure(let error):
@@ -121,11 +133,8 @@ extension GalleryController: UITextFieldDelegate, UICollectionViewDelegate {
                     }
                 }
             }
-
         }
     }
-    
-    
 }
 
 

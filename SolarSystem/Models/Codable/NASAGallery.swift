@@ -9,12 +9,13 @@
 import Foundation
 import UIKit
 
+// Wanted to follow/use Pasan's way from ItunesClient.
 enum ImageState {
     case placeholder
     case downloaded
     case failed
 }
-
+// How the JSON of this api is structured.
 struct GallerySearchResult: Codable {
     var collection: Collection
 }
@@ -45,15 +46,16 @@ extension GalleryItems {
         data = try values.decode([GalleryData].self, forKey: .data)
     }
 }
-
+// This class was originally a struct but I could not modify the data within it like in th iTunesClient method that was taught. Out of ideas and brain power.
 class GalleryData {
     
     var title: String = ""
     var mediaType: String = ""
     var nasaId: String = ""
+    // The following 3 properties stay nil, and do not update. Have no clue what to do now.
     var imageURL: URL?
     var image: UIImage?
-    var imageState = ImageState.placeholder
+    var imageState = ImageState.placeholder // The idea was to have this as placeholder and then it would become .downloaded once the image is downloaded and set using Nuke.
     enum CodingKeys: String, CodingKey {
         case title
         case mediaType = "media_type"

@@ -10,21 +10,14 @@ import Foundation
 import UIKit
 import Nuke
 
-class ImageData {
-    static let shared = ImageData()
-    var viewModel = GalleryCellViewModel.shared
-    var imageURL: URL?
-    var imageState: ImageState = .placeholder
-    var nukeManager = Nuke.Manager.shared
-    func add(with url: URL){
-        self.imageURL = url
-    //    self.imageState = state
+// Unused singlton. Used it as an approach before, but things got messy and buggy.
+//class ImageData {
+//    static let shared = ImageData()
+//    var imageURL: URL?
+//    var imageState: ImageState = .placeholder
+//    var nukeManager = Nuke.Manager.shared
+//    func add(with url: URL){
+//        self.imageURL = url
+//    }
 //
-//        nukeManager.loadImage(with: imageURL!) { (image) in
-//            self.viewModel.image = image.value!
-//            print(self.viewModel.image)
-//            print("Image State: \(self.imageState)")
-//        }
-    }
-    
-}
+//}

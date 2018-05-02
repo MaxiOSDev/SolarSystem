@@ -8,6 +8,7 @@
 
 import Foundation
 
+// This operation subclass is going to parse the next page once the user gets to the end of images in the array within the collectionview
 class NASAGalleryOperation: Operation {
     var gallery: GallerySearchResult
     let client: NASAClient
