@@ -17,10 +17,11 @@ enum ImageState {
 
 struct GallerySearchResult: Codable {
     var collection: Collection
-    struct Collection: Codable {
-        var links: [GalleryLinks]
-        var items: [GalleryItems]
-    }
+}
+
+struct Collection: Codable {
+    var links: [GalleryLinks]
+    var items: [GalleryItems]
 }
 
 struct GalleryLinks: Codable {
@@ -45,10 +46,11 @@ extension GalleryItems {
     }
 }
 
-struct GalleryData {
-    var title: String
-    var mediaType: String
-    var nasaId: String
+class GalleryData {
+    
+    var title: String = ""
+    var mediaType: String = ""
+    var nasaId: String = ""
     var imageURL: URL?
     var image: UIImage?
     var imageState = ImageState.placeholder
@@ -57,16 +59,17 @@ struct GalleryData {
         case mediaType = "media_type"
         case nasaId = "nasa_id"
     }
-}
-
-extension GalleryData: Decodable, Encodable {
-    init(from decoder: Decoder) throws {
+    
+    required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         title = try values.decode(String.self, forKey: .title)
         mediaType = try values.decode(String.self, forKey: .mediaType)
         nasaId = try values.decode(String.self, forKey: .nasaId)
     }
-    
+
+}
+
+extension GalleryData: Decodable, Encodable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(title, forKey: .title)

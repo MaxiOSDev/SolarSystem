@@ -11,12 +11,12 @@ import UIKit
 import Nuke
 
 class GalleryJSONOperation: Operation {
-    let gallery: GalleryItems
-    var data: GalleryData
+    let gallery: GalleryItems?
+    let data: GalleryData
     let client: NASAClient
     private let nukeManager = Nuke.Manager.shared
-    init(gallery: GalleryItems, data: GalleryData, client: NASAClient) {
-        self.gallery = gallery
+    init(gallery: GalleryItems?, data: GalleryData, client: NASAClient) {
+        self.gallery = gallery ?? nil
         self.data = data
         self.client = client
         super.init()
@@ -62,37 +62,35 @@ class GalleryJSONOperation: Operation {
         
         isExecuting = true
         
-        client.itemWith(link: gallery, data: data) { [unowned self] result in
+        client.itemWith(link: nil, data: data) { [unowned self] result in
             switch result {
             case .success(let results):
-     //           for var data in self.gallery.data {
-             //       var imageState = data.imageState
+
                     for i in results {
                         if self.data.mediaType == "video" {
                             if i.range(of: "small_thumb_00002.png") != nil {
                                 let url = URL(string: i)!
                                 print("URL A: \(url)")
-                             //   imageState = .downloaded
+
                                 self.data.imageState = .downloaded
                                 self.data.imageURL = url
-                                
-                                print("Inside Operation Class: \(self.data.title), \(self.data.imageState), \(self.data.imageURL)/n")
-                           //     ImageData.shared.add(with: url)
+
                             }
                             
                         } else if self.data.mediaType == "image" {
                             if i.range(of: "thumb.jpg") != nil {
                                 let url = URL(string: i)!
                                 print("URL B: \(url)")
-                             //   imageState = .downloaded
+
                                 self.data.imageState = .downloaded
                                 self.data.imageURL = url
-                                print("Inside Operation Class: \(self.data.title), \(self.data.imageState), \(self.data.imageURL)/n")
-                          //      ImageData.shared.add(with: url)
+                                self.nukeManager.loadImage(with: url, completion: { (image) in
+                                    self.data.image = image.value
+                                })
+
                             }
                         }
                     }
-        //        }
                 
                 self.isExecuting = false
                 self.isFinished = true

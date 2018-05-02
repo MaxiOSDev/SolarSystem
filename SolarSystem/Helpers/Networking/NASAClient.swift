@@ -45,7 +45,8 @@ class NASAClient: APIClient {
 //        }
 //    }
     
-    func itemWith(link: GalleryItems, data: GalleryData, completion: @escaping (Result<[String], APIError>) -> Void) {
+    func itemWith(link: GalleryItems?, data: GalleryData, completion: @escaping (Result<[String], APIError>) -> Void) {
+        guard let link = link else { return }
         guard let href = link.href else { return }
         
         guard let url = URL(string: href) else { return }

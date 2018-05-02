@@ -11,7 +11,7 @@ import UIKit
 class LandingViewController: UIViewController {
     
     // MARK: - IBOutlets
-
+    @IBAction func unwindToVC1(segue: UIStoryboardSegue) {}
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,11 +13,11 @@ import Nuke
 class GalleryDatasource: NSObject, UICollectionViewDataSource {
 
     private let collectionView: UICollectionView
-  //  private var data = [GalleryItems]()
+
     private var pageData = [GallerySearchResult]()
     private var client = NASAClient()
     let nukeManager = Nuke.Manager.shared
-    
+    private var newData: GalleryData?
     let pendingOperations = PendingOperations()
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -35,22 +35,26 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCell", for: indexPath) as! GalleryCell
-        for result in pageData {
-            let items = result.collection.items
-            
-            let item = object(array: items, at: indexPath)
-            
-            for data in item.data {
-                let viewModel = GalleryCellViewModel(gallery: data)
-                cell.configure(with: viewModel)
-//                let imageState = ImageData.shared.imageState
-//
-                if data.imageState == .placeholder {
-                    downloadImageData(for: item, atIndexPath: indexPath)
+            for result in pageData {
+                let items = result.collection.items
+                
+                let item = object(array: items, at: indexPath)
+                for data in item.data {
+                    let viewModel = GalleryCellViewModel(gallery: data)
+                    cell.configure(with: viewModel)
+                    
+                    if data.imageState == .placeholder {
+                        
+                        downloadImageData(for: data, atIndexPath: indexPath)
+                   //     print("Each Item here: \(data.title), \(data.imageState), \(data.imageURL)\n")
+                    } else {
+               //         print("Worked? \(data.title), \(data.imageState) \(data.imageURL)\n")
+                    }
+                    
+                    
                 }
-                print("Each Item here: \(data.title), \(data.imageState), \(data.imageURL)/n")
+
             }
-        }
 
         return cell
     }
@@ -61,10 +65,7 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
 
         return array![indexPath.row]
     }
-    
-//    func update(with data: [GalleryItems]) {
-//        self.data = data
-//    }
+
     
     func pageUpdate(with data: [GallerySearchResult]) {
         
@@ -81,13 +82,12 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
            return items[indexPath.row] = object
     }
 
-    func downloadImageData(for item: GalleryItems, atIndexPath indexPath: IndexPath) {
+    func downloadImageData(for item: GalleryData, atIndexPath indexPath: IndexPath) {
         if let _ = pendingOperations.downloadsInProgress[indexPath] {
             return
         }
         
-        for data in item.data {
-            let downloader = GalleryJSONOperation(gallery: item, data: data, client: client)
+            let downloader = GalleryJSONOperation(gallery: nil, data: item, client: client)
             
             downloader.completionBlock = {
                 if downloader.isCancelled {
@@ -96,12 +96,15 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
                 
                 DispatchQueue.main.async {
                     self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
+            //        print("Inside downloadImageData: \(downloader.data.title),\(downloader.data.imageURL), \(downloader.data.imageState)\n")
+                    self.newData = downloader.data
                     self.collectionView.reloadItems(at: [indexPath])
                 }
             }
+            
             pendingOperations.downloadsInProgress[indexPath] = downloader
             pendingOperations.downloadQueue.addOperation(downloader)
-        }
+
 
     }
     
@@ -118,7 +121,9 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
                 }
                 
                 DispatchQueue.main.async {
+                    
                     self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
+                    
                     self.collectionView.reloadItems(at: [indexPath])
                 }
             }
@@ -129,15 +134,6 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     }
 }
 
-//extension Array where Element: Equatable {
-//    func removingDuplicates() -> Array {
-//        return reduce(into: []) { result, element in
-//            if !result.contains(element) {
-//                result.append(element)
-//            }
-//        }
-//    }
-//}
 
 
 

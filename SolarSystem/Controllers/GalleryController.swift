@@ -12,12 +12,8 @@ class GalleryController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    lazy var dataSource: GalleryDatasource = {
-       return GalleryDatasource(collectionView: collectionView)
-    }()
-    
     let client = NASAClient()
-    
+    var inputText: String = ""
      var customView: UIView = {
         let accessoryView = UIView(frame: .zero)
         accessoryView.backgroundColor = .red
@@ -45,15 +41,6 @@ class GalleryController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.dataSource = dataSource
-        collectionView.delegate = self
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        let screenWidth = UIScreen.main.bounds.width
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-        layout.itemSize = CGSize(width: screenWidth/2, height: screenWidth/2)
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        collectionView!.collectionViewLayout = layout
         
         customView.backgroundColor = .red
         customView.addSubview(textField)
@@ -70,6 +57,9 @@ class GalleryController: UIViewController {
     }
     
     
+    @IBAction func backPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
+    }
     
     func addAccessory() {
         customView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 45)
@@ -110,22 +100,29 @@ extension GalleryController: UITextFieldDelegate, UICollectionViewDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let textFieldText = textField.text, !textFieldText.isEmpty else { return }
-        client.search(withTerm: textFieldText.lowercased()) { [weak self] result in
-            switch result {
-            case .success(let results):
-            self?.dataSource.pageUpdate(with: [results])
-            self?.collectionView.reloadData()
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
+        inputText = textFieldText
+        performSegue(withIdentifier: "searchSegue", sender: self)
         self.textField.text = ""
         tempTextField.resignFirstResponder()
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "searchSegue" {
+            if let navController = segue.destination as? UINavigationController {
+                let resultVC = navController.topViewController as! SearchResultController
+                client.search(withTerm: inputText) { [weak self] result in
+                    switch result {
+                    case .success(let results):
+                        
+                        resultVC.dataSource.pageUpdate(with: [results])
+                        resultVC.collectionView.reloadData()
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+
+        }
     }
     
     
