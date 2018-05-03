@@ -14,7 +14,7 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
 
     private let collectionView: UICollectionView
     // This pageData array holds the data
-    private var pageData = [GallerySearchResult]()
+     var pageData = [GallerySearchResult]()
     private var client = NASAClient()
     
     // NukeManager singlton
@@ -48,15 +48,15 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
                     let viewModel = GalleryCellViewModel(gallery: data)
                     cell.configure(with: viewModel)
                     
-                    // Checks if the imageState is .placeholder. The idea is that the imageState gets changed to .downloaded within GalleryImageOperation.swift
+                    // Checks if the imageState is not .downloaded. if not then download imageData, no more check for .placeholder. Wouldn't work.
                     if data.imageState != .downloaded {
                         downloadImageData(for: item, atIndexPath: indexPath)
-                  //      print("Each Item here: \(data.title), \(data.imageState), \(data.imageURL)\n")
                     } else {
-                   //     print("Each Item here: \(data.title), \(data.imageState), \(data.imageURL)\n")
+                        cell.progressIndicator.hidesWhenStopped = true
+                        cell.progressIndicator.stopAnimating()
+                        
                     }
                 }
-
             }
 
         return cell
@@ -112,7 +112,6 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     }
     
     // Following method reserved for future use but and is not used
-    
     
 //    func downloadNextPage(for galleryResult: GallerySearchResult, atIndexPath indexPath: IndexPath) {
 //        if let _ = pendingOperations.downloadsInProgress[indexPath] {

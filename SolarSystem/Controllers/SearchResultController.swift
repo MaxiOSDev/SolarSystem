@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 class SearchResultController: UIViewController {
     
@@ -27,6 +28,11 @@ class SearchResultController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         collectionView!.collectionViewLayout = layout
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        ImageData.shared.imageState = .placeholder
     }
     
     @IBAction func backPressed(_ sender: UIBarButtonItem) {

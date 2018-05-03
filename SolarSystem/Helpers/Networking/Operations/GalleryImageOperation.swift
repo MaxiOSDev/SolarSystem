@@ -77,7 +77,7 @@ class GalleryJSONOperation: Operation {
                         if data.mediaType == "video" {
                             if i.range(of: "small_thumb_00002.png") != nil {
                                 let url = URL(string: i)!
-                                print("URL A: \(url)")
+                             //   print("URL A: \(url)")
                                 // I have the url now. So I use Nuke, to convert it to an image. Which I then tried to place in the model.
                                 // I also make the imageState .download after I have the image. I thought I had done it.
                                 
@@ -95,7 +95,7 @@ class GalleryJSONOperation: Operation {
                         } else if data.mediaType == "image" {
                             if i.range(of: "thumb.jpg") != nil {
                                 let url = URL(string: i)!
-                                print("URL B: \(url)")
+                           //     print("URL B: \(url)")
                                 
                                 
                                 data.imageURL = url
