@@ -35,11 +35,12 @@ class NASAClient: APIClient {
     }
     
     // This one is for parsing the collection.json URL within the JSON, so I can end up at the image URL.
-    func itemWith(link: GalleryItems?, data: GalleryData, completion: @escaping (Result<[String], APIError>) -> Void) {
-        guard let link = link else { return }
+    func itemWith(link: GalleryItems, completion: @escaping (Result<[String], APIError>) -> Void) {
+
         guard let href = link.href else { return }
         
         guard let url = URL(string: href) else { return }
+        for data in link.data {
             if data.mediaType == "video" || data.mediaType == "image" {
                 let request = URLRequest(url: url)
                 
@@ -48,6 +49,7 @@ class NASAClient: APIClient {
                     return results
                 }, completion: completion)
             }
+        }
     }
     
     // Not used but will be.

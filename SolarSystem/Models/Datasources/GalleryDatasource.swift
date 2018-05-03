@@ -20,6 +20,7 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     // NukeManager singlton
     let nukeManager = Nuke.Manager.shared
     
+    
     let pendingOperations = PendingOperations()
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -48,8 +49,10 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
                     cell.configure(with: viewModel)
                     
                     // Checks if the imageState is .placeholder. The idea is that the imageState gets changed to .downloaded within GalleryImageOperation.swift
-                    if data.imageState == .placeholder {
-                        downloadImageData(for: data, atIndexPath: indexPath)
+                    if data.imageState != .downloaded {
+                        downloadImageData(for: item, atIndexPath: indexPath)
+                  //      print("Each Item here: \(data.title), \(data.imageState), \(data.imageURL)\n")
+                    } else {
                    //     print("Each Item here: \(data.title), \(data.imageState), \(data.imageURL)\n")
                     }
                 }
@@ -83,13 +86,14 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     }
 
     // The following is the method. Yes. The method I learnt from the courses, and I used it in this project.
-    func downloadImageData(for item: GalleryData, atIndexPath indexPath: IndexPath) {
+    func downloadImageData(for item: GalleryItems, atIndexPath indexPath: IndexPath) {
         if let _ = pendingOperations.downloadsInProgress[indexPath] {
             return
         }
         
-            let downloader = GalleryJSONOperation(gallery: nil, data: item, client: client)
-            
+            let downloader = GalleryJSONOperation(gallery: item, client: client)
+        
+        //    pendingOperations.downloadQueue.maxConcurrentOperationCount = 1
             downloader.completionBlock = {
                 if downloader.isCancelled {
                     return
