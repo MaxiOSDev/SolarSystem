@@ -119,7 +119,7 @@ extension GalleryController: UITextFieldDelegate, UICollectionViewDelegate {
         if segue.identifier == "searchSegue" {
             if let navController = segue.destination as? UINavigationController {
                 let resultVC = navController.topViewController as! SearchResultController
-                client.search(withTerm: inputText) { [weak self] result in
+                client.search(withTerm: inputText) {  result in
                     switch result {
                     case .success(let results):
                     

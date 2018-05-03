@@ -325,12 +325,13 @@
                     <connections>
                         <outlet property="collectionView" destination="KVe-cY-aeO" id="cJc-3Z-sfS"/>
                         <segue destination="tPm-qR-ivm" kind="unwind" identifier="unwindToVC1" unwindAction="unwindToVC1WithSegue:" id="Biy-E4-Ntx"/>
+                        <segue destination="cYs-Go-R7E" kind="presentation" identifier="showImage" modalTransitionStyle="crossDissolve" id="8hw-Yc-Jjh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXM-Pp-ujH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="tPm-qR-ivm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3583.59375" y="-122.46093749999999"/>
+            <point key="canvasLocation" x="3629" y="-122"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="k4y-FX-oA6">
@@ -349,6 +350,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPo-AU-rem" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2817.96875" y="-122.46093749999999"/>
+        </scene>
+        <!--Gallery Zoom View Controller-->
+        <scene sceneID="5bX-Jt-HV5">
+            <objects>
+                <viewController storyboardIdentifier="GalleryZoomController" id="cYs-Go-R7E" customClass="GalleryZoomViewController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1oM-YM-Ixv">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HdC-8D-l5n">
+                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                                <subviews>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sJG-Ya-ct6">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="JJS-QF-vJZ" appends="YES" id="X4B-ox-byF"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="sJG-Ya-ct6" firstAttribute="centerY" secondItem="HdC-8D-l5n" secondAttribute="centerY" id="5Fl-IQ-wQc"/>
+                                    <constraint firstAttribute="bottom" secondItem="sJG-Ya-ct6" secondAttribute="bottom" id="7xu-IK-o3C"/>
+                                    <constraint firstItem="sJG-Ya-ct6" firstAttribute="centerX" secondItem="HdC-8D-l5n" secondAttribute="centerX" id="QIs-Gj-PKJ"/>
+                                    <constraint firstItem="sJG-Ya-ct6" firstAttribute="top" secondItem="HdC-8D-l5n" secondAttribute="top" id="gmf-DC-JEc"/>
+                                    <constraint firstAttribute="trailing" secondItem="sJG-Ya-ct6" secondAttribute="trailing" id="yOO-Nu-3eI"/>
+                                    <constraint firstItem="sJG-Ya-ct6" firstAttribute="leading" secondItem="HdC-8D-l5n" secondAttribute="leading" id="zBb-Mb-5AY"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HdC-8D-l5n" secondAttribute="trailing" id="PvD-bQ-liL"/>
+                            <constraint firstItem="HdC-8D-l5n" firstAttribute="top" secondItem="pqx-34-sn9" secondAttribute="top" id="XRC-Ra-rc3"/>
+                            <constraint firstItem="pqx-34-sn9" firstAttribute="bottom" secondItem="HdC-8D-l5n" secondAttribute="bottom" id="dJ3-1L-TFC"/>
+                            <constraint firstItem="HdC-8D-l5n" firstAttribute="leading" secondItem="1oM-YM-Ixv" secondAttribute="leading" id="v84-5s-e7p"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pqx-34-sn9"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="sJG-Ya-ct6" id="Q8O-nj-qgx"/>
+                        <outlet property="scrollView" destination="HdC-8D-l5n" id="g3N-qx-zUQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vxe-3E-H3m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="JJS-QF-vJZ">
+                    <connections>
+                        <action selector="imageTapped:" destination="cYs-Go-R7E" id="mna-Ju-097"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="4459" y="-122"/>
         </scene>
     </scenes>
     <resources>

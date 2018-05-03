@@ -27,6 +27,7 @@
 		FB9786E42099EA0800D46F8B /* PendingOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9786E32099EA0700D46F8B /* PendingOperations.swift */; };
 		FB9786E72099EFD600D46F8B /* GalleryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9786E62099EFD600D46F8B /* GalleryCellViewModel.swift */; };
 		FB9786E9209A197300D46F8B /* SearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9786E8209A197300D46F8B /* SearchResultController.swift */; };
+		FBF12743209B6E02003A2516 /* GalleryZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF12742209B6E02003A2516 /* GalleryZoomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		FB9786E32099EA0700D46F8B /* PendingOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOperations.swift; sourceTree = "<group>"; };
 		FB9786E62099EFD600D46F8B /* GalleryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCellViewModel.swift; sourceTree = "<group>"; };
 		FB9786E8209A197300D46F8B /* SearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultController.swift; sourceTree = "<group>"; };
+		FBF12742209B6E02003A2516 /* GalleryZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryZoomViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				FB9786CB20976B5D00D46F8B /* LandingViewController.swift */,
 				FB9786CF2097A86200D46F8B /* GalleryController.swift */,
 				FB9786E8209A197300D46F8B /* SearchResultController.swift */,
+				FBF12742209B6E02003A2516 /* GalleryZoomViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			files = (
 				FB9786E9209A197300D46F8B /* SearchResultController.swift in Sources */,
 				FB9786D82097C91100D46F8B /* Result.swift in Sources */,
+				FBF12743209B6E02003A2516 /* GalleryZoomViewController.swift in Sources */,
 				FB9786D02097A86200D46F8B /* GalleryController.swift in Sources */,
 				FB9786E22099026F00D46F8B /* ImageData.swift in Sources */,
 				FB9786E42099EA0800D46F8B /* PendingOperations.swift in Sources */,

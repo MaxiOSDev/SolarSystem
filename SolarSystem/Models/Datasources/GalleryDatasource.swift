@@ -16,6 +16,7 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     // This pageData array holds the data
      var pageData = [GallerySearchResult]()
     private var client = NASAClient()
+    var selectedImageUrl = [[URL: IndexPath]]()
     
     // NukeManager singlton
     let nukeManager = Nuke.Manager.shared
@@ -54,12 +55,16 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
                     } else {
                         cell.progressIndicator.hidesWhenStopped = true
                         cell.progressIndicator.stopAnimating()
-                        
+                        selectedImageUrl.append([data.imageURL! : indexPath])
                     }
                 }
             }
 
         return cell
+    }
+    
+    func selectedURL(_ url: URL, for indexPath: IndexPath) {
+        self.selectedImageUrl = [[url: indexPath]]
     }
     
     // MARK: Helpers

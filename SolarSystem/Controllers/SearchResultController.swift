@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Nuke
 
 class SearchResultController: UIViewController {
     
@@ -20,7 +19,7 @@ class SearchResultController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = dataSource
-        
+        collectionView.delegate = self
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let screenWidth = UIScreen.main.bounds.width
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
@@ -38,5 +37,37 @@ class SearchResultController: UIViewController {
     @IBAction func backPressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "unwindToVC1", sender: self)
     }
+}
+
+extension SearchResultController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        for item in dataSource.pageData {
+            let image = dataSource.object(array: item.collection.items, at: indexPath)
+            for data in image.data {
+                if data.mediaType == "video" {
+                    
+                } else if data.mediaType == "image" {
+                    print("\(dataSource.selectedImageUrl)")
+                    performSegue(withIdentifier: "showImage", sender: self)
+                }
+            }
+        }
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showImage" {
+            let zoomVC = segue.destination as! GalleryZoomViewController
+            if let indexPaths = collectionView.indexPathsForSelectedItems {
+                for indexPath in indexPaths {
+                    for index in dataSource.selectedImageUrl {
+                        for (key, value) in index {
+                            if value == indexPath {
+                                zoomVC.imageURL = key
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
