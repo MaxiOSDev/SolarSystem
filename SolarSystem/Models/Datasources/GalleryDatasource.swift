@@ -17,7 +17,7 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
      var pageData = [GallerySearchResult]()
     private var client = NASAClient()
     var selectedImageUrl = [[URL: IndexPath]]()
-    
+    var selectedVideoUrl = [[URL: IndexPath]]()
     // NukeManager singlton
     let nukeManager = Nuke.Manager.shared
     
@@ -56,6 +56,10 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
                         cell.progressIndicator.hidesWhenStopped = true
                         cell.progressIndicator.stopAnimating()
                         selectedImageUrl.append([data.imageURL! : indexPath])
+                        if data.videoURL != nil {
+                            selectedVideoUrl.append([data.videoURL! : indexPath])
+                        }
+                        
                     }
                 }
             }

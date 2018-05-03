@@ -75,8 +75,17 @@ class GalleryJSONOperation: Operation {
                 for data in self.gallery.data {
                     for i in results {
                         if data.mediaType == "video" {
+                            
+                            if i.range(of: "small.mp4") != nil {
+                                let videoUrl = URL(string: i)!
+                        //        print("Video URL HERE \(videoUrl)")
+                                data.videoURL = videoUrl
+                               ImageData.shared.addVideo(with: videoUrl)
+                            }
+                            
                             if i.range(of: "small_thumb_00002.png") != nil {
                                 let url = URL(string: i)!
+                                
                              //   print("URL A: \(url)")
                                 // I have the url now. So I use Nuke, to convert it to an image. Which I then tried to place in the model.
                                 // I also make the imageState .download after I have the image. I thought I had done it.
@@ -87,10 +96,16 @@ class GalleryJSONOperation: Operation {
                                     data.imageState = .downloaded
                                     ImageData.shared.add(with: url, image: image.value!, imageState: .downloaded)
                                 })
+                                
+
+                                
+                                
                                 // You can even use a print statment for example print("\(self.data.title),\(self.data.imageURL),\(self.data.image), \(self.data.imageState)")
                                 // To check that indeed the model's data has changed. YES, but wait it's no time to celebate because it didn't entirely work.
                                 // I'll explain why in GalleryDatasource.swift within the method "downloadImageData"
                             }
+                            
+
                             
                         } else if data.mediaType == "image" {
                             if i.range(of: "thumb.jpg") != nil {

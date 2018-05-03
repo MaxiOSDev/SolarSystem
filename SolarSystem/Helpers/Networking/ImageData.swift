@@ -10,16 +10,21 @@ import Foundation
 import UIKit
 import Nuke
 
-// Unused singlton. Used it as an approach before, but things got messy and buggy.
 class ImageData {
     static let shared = ImageData()
     var imageURL: URL?
     var imageState: ImageState?
     var image: UIImage?
+    var videoURL: URL?
+    
     func add(with url: URL, image: UIImage, imageState: ImageState){
         self.imageURL = url
         self.image = image
         self.imageState = imageState
     }
-
+    
+    func addVideo(with url: URL) {
+        self.videoURL = url
+    }
 }
+

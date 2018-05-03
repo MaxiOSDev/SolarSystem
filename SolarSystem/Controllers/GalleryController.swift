@@ -29,7 +29,7 @@ class GalleryController: UIViewController {
     var searchButton: UIButton = {
         let searchButton = UIButton(type: .custom)
         searchButton.setTitle("Search", for: .normal)
-        searchButton.setTitleColor(.black, for: .normal)
+        searchButton.setTitleColor(.white, for: .normal)
         searchButton.addTarget(self, action: #selector(cancelButtonTapped(sender:)), for: .touchUpInside)
         searchButton.showsTouchWhenHighlighted = true
         return searchButton

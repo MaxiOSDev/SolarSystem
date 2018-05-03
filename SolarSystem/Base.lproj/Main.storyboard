@@ -333,6 +333,14 @@
             </objects>
             <point key="canvasLocation" x="3629" y="-122"/>
         </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="6jT-OH-h84">
+            <objects>
+                <avPlayerViewController storyboardIdentifier="AVVideoController" videoGravity="AVLayerVideoGravityResizeAspect" id="8EL-Pj-2kp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NPC-t3-TTb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3629" y="579"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="k4y-FX-oA6">
             <objects>

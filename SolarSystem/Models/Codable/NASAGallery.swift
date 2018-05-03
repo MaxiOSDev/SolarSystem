@@ -52,10 +52,13 @@ class GalleryData {
     var title: String = ""
     var mediaType: String = ""
     var nasaId: String = ""
+    
     // The following 3 properties stay nil, and do not update. Have no clue what to do now.
     var imageURL: URL? = ImageData.shared.imageURL
     var image: UIImage? = ImageData.shared.image
     var imageState: ImageState? = ImageData.shared.imageState // The idea was to have this as placeholder and then it would become .downloaded once the image is downloaded and set using Nuke.
+    
+    var videoURL: URL? = ImageData.shared.videoURL
     enum CodingKeys: String, CodingKey {
         case title
         case mediaType = "media_type"
