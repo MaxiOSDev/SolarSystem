@@ -12,7 +12,6 @@ class SearchResultController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
     lazy var dataSource: GalleryDatasource = {
        return GalleryDatasource(collectionView: collectionView)
     }()

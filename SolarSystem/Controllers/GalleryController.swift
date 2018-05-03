@@ -22,18 +22,17 @@ class GalleryController: UIViewController {
     // Custom view created to only come up with keyboard
      var customView: UIView = {
         let accessoryView = UIView(frame: .zero)
-        accessoryView.backgroundColor = .red
+        accessoryView.backgroundColor = UIColor.lightGray
         return accessoryView
     }()
-    
-    // NOT Cancel. Search button. Copy and pasted code.
-    var cancelButton: UIButton = {
-        let cancelButton = UIButton(type: .custom)
-        cancelButton.setTitle("Search", for: .normal)
-        cancelButton.setTitleColor(.black, for: .normal)
-        cancelButton.addTarget(self, action: #selector(cancelButtonTapped(sender:)), for: .touchUpInside)
-        cancelButton.showsTouchWhenHighlighted = true
-        return cancelButton
+
+    var searchButton: UIButton = {
+        let searchButton = UIButton(type: .custom)
+        searchButton.setTitle("Search", for: .normal)
+        searchButton.setTitleColor(.black, for: .normal)
+        searchButton.addTarget(self, action: #selector(cancelButtonTapped(sender:)), for: .touchUpInside)
+        searchButton.showsTouchWhenHighlighted = true
+        return searchButton
     }()
     
     // Textfield that will be inside of customView
@@ -74,18 +73,18 @@ class GalleryController: UIViewController {
     func addAccessory() {
         customView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 45)
         customView.translatesAutoresizingMaskIntoConstraints = false
-        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        searchButton.translatesAutoresizingMaskIntoConstraints = false
         textField.translatesAutoresizingMaskIntoConstraints = false
         tempTextField.inputAccessoryView = customView
         customView.addSubview(textField)
-        customView.addSubview(cancelButton)
+        customView.addSubview(searchButton)
         
         NSLayoutConstraint.activate([
             textField.leadingAnchor.constraint(equalTo: customView.leadingAnchor, constant: 20),
             textField.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: -100),
             textField.centerYAnchor.constraint(equalTo: customView.centerYAnchor),
-            cancelButton.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: -20),
-            cancelButton.centerYAnchor.constraint(equalTo: customView.centerYAnchor)
+            searchButton.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: -20),
+            searchButton.centerYAnchor.constraint(equalTo: customView.centerYAnchor)
             ])
     }
     
@@ -98,8 +97,6 @@ extension GalleryController: UITextFieldDelegate, UICollectionViewDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return true
     }
-    
-    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == tempTextField {

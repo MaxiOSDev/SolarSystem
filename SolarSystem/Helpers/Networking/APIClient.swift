@@ -8,6 +8,7 @@
 
 import Foundation
 
+// API Client I use mainly in every project
 enum APIError: Error {
     case requestFailed
     case jsonConversionFailure

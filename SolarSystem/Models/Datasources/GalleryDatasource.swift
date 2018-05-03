@@ -105,8 +105,6 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
             
             pendingOperations.downloadsInProgress[indexPath] = downloader
             pendingOperations.downloadQueue.addOperation(downloader)
-
-
     }
     
     // Following method reserved for future use but and is not used

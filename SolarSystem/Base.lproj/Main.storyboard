@@ -47,7 +47,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="309"/>
                                                 <state key="normal" backgroundImage="galaxy"/>
                                                 <connections>
-                                                    <action selector="featureTapped:" destination="pwW-mF-UiY" eventType="touchUpInside" id="z1B-OD-ncT"/>
+                                                    <segue destination="iEy-RY-XXO" kind="show" identifier="showGalleryVC" id="Dm7-PL-LE5"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NASA Gallery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gl0-qd-OZ6">
@@ -181,9 +181,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2BM-yo-yqC"/>
                     </view>
-                    <connections>
-                        <segue destination="iEy-RY-XXO" kind="show" identifier="showGalleryVC" id="LUB-I6-jEJ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D0b-fJ-BY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -322,12 +319,6 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="backPressed:" destination="PJ8-qF-Hhi" id="ESQ-IG-CMK"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Search" id="KLc-7A-1Vy">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="searchButtonPressed:" destination="PJ8-qF-Hhi" id="RnU-km-3jr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

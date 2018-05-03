@@ -432,7 +432,8 @@ extension JLStickerLabelView {
     
     fileprivate func refresh() {
         if let superView: UIView = superview {
-            if let transform: CGAffineTransform = superView.transform {
+     //       if let transform: CGAffineTransform = superView.transform {
+                let transform = superView.transform
                 let scale = CalculateFunctions.CGAffineTransformGetScale(transform)
                 let t = CGAffineTransform(scaleX: scale.width, y: scale.height)
                 closeView?.transform = t.inverted()
@@ -445,7 +446,7 @@ extension JLStickerLabelView {
                 }else {
                     border?.removeFromSuperlayer()
                 }
-            }
+      //      }
         }
     }
     
