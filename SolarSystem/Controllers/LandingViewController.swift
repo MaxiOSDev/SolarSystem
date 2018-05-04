@@ -25,7 +25,7 @@ class LandingViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRoverMakerVC" {
             let roverVC = segue.destination as! RoverMakerController
-            client.fetchRover("curiosity") { [weak self] result in
+            client.fetchRover("curiosity") { result in
                 switch result {
                 case .success(let results):
                     

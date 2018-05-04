@@ -62,6 +62,16 @@ class NASAClient: APIClient {
         }, completion: completion)
     }
     
+    func fetchEarthImageryWith(coords lon: Double, _ lat: Double, completion: @escaping (Result<NASAEarthImagery?, APIError>) -> Void) {
+        let endpoint = EarthImageryEndpoint.search(lon: lon, lat: lat)
+        let request = endpoint.request
+        fetch(with: request, decode: { (json) -> NASAEarthImagery? in
+            guard let result = json as? NASAEarthImagery else { return nil }
+            return result
+        }, completion: completion)
+        
+    }
+    
     // Not used but will be.
     func parseNextPage(with link: [GalleryLinks], completion: @escaping (Result<GallerySearchResult, APIError>) -> Void) {
         for url in link {

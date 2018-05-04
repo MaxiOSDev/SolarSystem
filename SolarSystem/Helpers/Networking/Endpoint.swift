@@ -85,6 +85,36 @@ extension RoverEndpoint: Endpoint {
         return result
         }
     }
+}
+
+enum EarthImageryEndpoint {
+    case search(lon: Double, lat: Double)
+}
+
+extension EarthImageryEndpoint: Endpoint {
+    var base: String {
+        return "https://api.nasa.gov"
+    }
+    
+    var path: String {
+        switch self {
+        case .search: return "/planetary/earth/imagery/"
+        }
+    }
+    
+    var queryItems: [URLQueryItem] {
+        switch self {
+        case .search(let lon, let lat):
+            var result = [URLQueryItem]()
+            let lon = URLQueryItem(name: "lon", value: "\(lon)")
+            let lat = URLQueryItem(name: "lat", value: "\(lat)")
+            let apiKey = URLQueryItem(name: "api_key", value: "FibfgEAUvuS0knr5woA5aNckz4QWk12iB5KHkBKr")
+            result.append(lon)
+            result.append(lat)
+            result.append(apiKey)
+            return result
+        }
+    }
     
     
 }

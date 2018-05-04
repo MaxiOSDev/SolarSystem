@@ -12,6 +12,12 @@
 		FB325885209CB264009F757D /* RoverViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB325884209CB264009F757D /* RoverViewerController.swift */; };
 		FB325887209CB292009F757D /* RoverZoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB325886209CB292009F757D /* RoverZoomController.swift */; };
 		FB325889209CB2B5009F757D /* EditImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB325888209CB2B5009F757D /* EditImageController.swift */; };
+		FB32588B209CBDC7009F757D /* EyeInSkyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32588A209CBDC7009F757D /* EyeInSkyController.swift */; };
+		FB32588D209CBE1B009F757D /* EarthSearchDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32588C209CBE1B009F757D /* EarthSearchDatasource.swift */; };
+		FB325893209CC03D009F757D /* LocationAnnotatonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB325890209CC03C009F757D /* LocationAnnotatonView.swift */; };
+		FB325894209CC03D009F757D /* LocationMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB325891209CC03C009F757D /* LocationMapAnnotationView.swift */; };
+		FB325895209CC03D009F757D /* LocationAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB325892209CC03C009F757D /* LocationAnnotationView.xib */; };
+		FB325897209CC08B009F757D /* NASAEarthImagery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB325896209CC08B009F757D /* NASAEarthImagery.swift */; };
 		FB4ED8C720939F5B0084C686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4ED8C620939F5B0084C686 /* AppDelegate.swift */; };
 		FB4ED8CC20939F5B0084C686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4ED8CA20939F5B0084C686 /* Main.storyboard */; };
 		FB4ED8CE20939F660084C686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB4ED8CD20939F660084C686 /* Assets.xcassets */; };
@@ -48,6 +54,12 @@
 		FB325884209CB264009F757D /* RoverViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverViewerController.swift; sourceTree = "<group>"; };
 		FB325886209CB292009F757D /* RoverZoomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverZoomController.swift; sourceTree = "<group>"; };
 		FB325888209CB2B5009F757D /* EditImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageController.swift; sourceTree = "<group>"; };
+		FB32588A209CBDC7009F757D /* EyeInSkyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeInSkyController.swift; sourceTree = "<group>"; };
+		FB32588C209CBE1B009F757D /* EarthSearchDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthSearchDatasource.swift; sourceTree = "<group>"; };
+		FB325890209CC03C009F757D /* LocationAnnotatonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAnnotatonView.swift; sourceTree = "<group>"; };
+		FB325891209CC03C009F757D /* LocationMapAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationMapAnnotationView.swift; sourceTree = "<group>"; };
+		FB325892209CC03C009F757D /* LocationAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationAnnotationView.xib; sourceTree = "<group>"; };
+		FB325896209CC08B009F757D /* NASAEarthImagery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAEarthImagery.swift; sourceTree = "<group>"; };
 		FB4ED8C320939F5B0084C686 /* SolarSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB4ED8C620939F5B0084C686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB4ED8CB20939F5B0084C686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,6 +144,7 @@
 		FB325880209CB0E7009F757D /* EarthImageryGroup */ = {
 			isa = PBXGroup;
 			children = (
+				FB32588A209CBDC7009F757D /* EyeInSkyController.swift */,
 			);
 			path = EarthImageryGroup;
 			sourceTree = "<group>";
@@ -141,6 +154,16 @@
 			children = (
 			);
 			path = ARGroup;
+			sourceTree = "<group>";
+		};
+		FB32588E209CBFF3009F757D /* LocationViews */ = {
+			isa = PBXGroup;
+			children = (
+				FB325892209CC03C009F757D /* LocationAnnotationView.xib */,
+				FB325890209CC03C009F757D /* LocationAnnotatonView.swift */,
+				FB325891209CC03C009F757D /* LocationMapAnnotationView.swift */,
+			);
+			path = LocationViews;
 			sourceTree = "<group>";
 		};
 		FB4ED8BA20939F5A0084C686 = {
@@ -201,6 +224,7 @@
 		FB9786BE2097466300D46F8B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FB32588E209CBFF3009F757D /* LocationViews */,
 				FBF1274A209BD352003A2516 /* CellViews */,
 				FB9786E52099EFB500D46F8B /* ViewModels */,
 			);
@@ -220,6 +244,7 @@
 			children = (
 				FB9786D12097ABCE00D46F8B /* GalleryDatasource.swift */,
 				FBF12746209BA124003A2516 /* RoverDatasource.swift */,
+				FB32588C209CBE1B009F757D /* EarthSearchDatasource.swift */,
 			);
 			path = Datasources;
 			sourceTree = "<group>";
@@ -242,6 +267,7 @@
 			children = (
 				FB9786D32097C09000D46F8B /* NASAGallery.swift */,
 				FBF12748209BA286003A2516 /* NASARover.swift */,
+				FB325896209CC08B009F757D /* NASAEarthImagery.swift */,
 			);
 			path = Codable;
 			sourceTree = "<group>";
@@ -337,6 +363,7 @@
 			files = (
 				FB4ED8D120939F660084C686 /* LaunchScreen.storyboard in Resources */,
 				FB4ED8CE20939F660084C686 /* Assets.xcassets in Resources */,
+				FB325895209CC03D009F757D /* LocationAnnotationView.xib in Resources */,
 				FB4ED8CC20939F5B0084C686 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,9 +426,11 @@
 				FB9786E22099026F00D46F8B /* ImageData.swift in Sources */,
 				FB9786E42099EA0800D46F8B /* PendingOperations.swift in Sources */,
 				FBF12750209BDB05003A2516 /* RoverCellViewModel.swift in Sources */,
+				FB32588B209CBDC7009F757D /* EyeInSkyController.swift in Sources */,
 				FB9786C72097506800D46F8B /* APIClient.swift in Sources */,
 				FBF12747209BA124003A2516 /* RoverDatasource.swift in Sources */,
 				FB9786D62097C6BF00D46F8B /* Endpoint.swift in Sources */,
+				FB325893209CC03D009F757D /* LocationAnnotatonView.swift in Sources */,
 				FB9786CE20976C6800D46F8B /* GalleryCell.swift in Sources */,
 				FB9786D42097C09000D46F8B /* NASAGallery.swift in Sources */,
 				FBF12749209BA286003A2516 /* NASARover.swift in Sources */,
@@ -411,11 +440,14 @@
 				FB9786D22097ABCE00D46F8B /* GalleryDatasource.swift in Sources */,
 				FB325887209CB292009F757D /* RoverZoomController.swift in Sources */,
 				FB325885209CB264009F757D /* RoverViewerController.swift in Sources */,
+				FB325897209CC08B009F757D /* NASAEarthImagery.swift in Sources */,
 				FBF1274E209BD4C9003A2516 /* MarsRoverOperation.swift in Sources */,
 				FB9786CC20976B5D00D46F8B /* LandingViewController.swift in Sources */,
+				FB325894209CC03D009F757D /* LocationMapAnnotationView.swift in Sources */,
 				FB9786E72099EFD600D46F8B /* GalleryCellViewModel.swift in Sources */,
 				FBF1274C209BD373003A2516 /* RoverCell.swift in Sources */,
 				FB9786DC2097CF1900D46F8B /* NASAGalleryOperation.swift in Sources */,
+				FB32588D209CBE1B009F757D /* EarthSearchDatasource.swift in Sources */,
 				FB4ED8C720939F5B0084C686 /* AppDelegate.swift in Sources */,
 				FB9786DA2097CC5700D46F8B /* NASAClient.swift in Sources */,
 			);
