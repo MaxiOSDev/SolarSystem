@@ -12,7 +12,7 @@ class RoverMakerController: UIViewController {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    @IBAction func roverUnwindToVC1(segue: UIStoryboardSegue) { }
     let client = NASAClient()
     
     var roverData: NASARover? {
@@ -21,7 +21,6 @@ class RoverMakerController: UIViewController {
             collectionView.reloadData()
         }
     }
-
     
     lazy var datasource: RoverDatasource = {
        return RoverDatasource(collectionView: collectionView)
@@ -92,7 +91,23 @@ class RoverMakerController: UIViewController {
     }
 }
 
-
+extension RoverMakerController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showRover" {
+            if let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell), let navController = segue.destination as? UINavigationController {
+                let pageViewController = navController.topViewController as! RoverPageController
+                if datasource.segmentedControlIndex == 0 {
+                    pageViewController.photos = datasource.curiosityData!
+                } else if datasource.segmentedControlIndex == 1 {
+                    pageViewController.photos = datasource.opporunityData!
+                } else if datasource.segmentedControlIndex == 2 {
+                    pageViewController.photos = datasource.spiritData!
+                }
+                pageViewController.indexOfCurrentPhoto = indexPath.row
+            }
+        }
+    }
+}
 
 
 

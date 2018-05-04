@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		98785F0C8717FBCC89F61809 /* Pods_SolarSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8FE5B8767A285325495B796 /* Pods_SolarSystem.framework */; };
+		FB325883209CB18A009F757D /* RoverPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB325882209CB18A009F757D /* RoverPageController.swift */; };
+		FB325885209CB264009F757D /* RoverViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB325884209CB264009F757D /* RoverViewerController.swift */; };
+		FB325887209CB292009F757D /* RoverZoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB325886209CB292009F757D /* RoverZoomController.swift */; };
+		FB325889209CB2B5009F757D /* EditImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB325888209CB2B5009F757D /* EditImageController.swift */; };
 		FB4ED8C720939F5B0084C686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4ED8C620939F5B0084C686 /* AppDelegate.swift */; };
 		FB4ED8CC20939F5B0084C686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4ED8CA20939F5B0084C686 /* Main.storyboard */; };
 		FB4ED8CE20939F660084C686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB4ED8CD20939F660084C686 /* Assets.xcassets */; };
@@ -40,6 +44,10 @@
 		2104B03441726241BB4869CA /* Pods-SolarSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolarSystem.release.xcconfig"; path = "Pods/Target Support Files/Pods-SolarSystem/Pods-SolarSystem.release.xcconfig"; sourceTree = "<group>"; };
 		CAFE9BEC214B035C46A4F4C9 /* Pods-SolarSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolarSystem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SolarSystem/Pods-SolarSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		E8FE5B8767A285325495B796 /* Pods_SolarSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SolarSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB325882209CB18A009F757D /* RoverPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverPageController.swift; sourceTree = "<group>"; };
+		FB325884209CB264009F757D /* RoverViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverViewerController.swift; sourceTree = "<group>"; };
+		FB325886209CB292009F757D /* RoverZoomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverZoomController.swift; sourceTree = "<group>"; };
+		FB325888209CB2B5009F757D /* EditImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageController.swift; sourceTree = "<group>"; };
 		FB4ED8C320939F5B0084C686 /* SolarSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB4ED8C620939F5B0084C686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB4ED8CB20939F5B0084C686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,6 +107,42 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FB32587E209CB0CD009F757D /* GalleryGroup */ = {
+			isa = PBXGroup;
+			children = (
+				FB9786CF2097A86200D46F8B /* GalleryController.swift */,
+				FB9786E8209A197300D46F8B /* SearchResultController.swift */,
+				FBF12742209B6E02003A2516 /* GalleryZoomViewController.swift */,
+			);
+			path = GalleryGroup;
+			sourceTree = "<group>";
+		};
+		FB32587F209CB0DC009F757D /* RoverGroup */ = {
+			isa = PBXGroup;
+			children = (
+				FBF12744209B9EB0003A2516 /* RoverMakerController.swift */,
+				FB325882209CB18A009F757D /* RoverPageController.swift */,
+				FB325884209CB264009F757D /* RoverViewerController.swift */,
+				FB325886209CB292009F757D /* RoverZoomController.swift */,
+				FB325888209CB2B5009F757D /* EditImageController.swift */,
+			);
+			path = RoverGroup;
+			sourceTree = "<group>";
+		};
+		FB325880209CB0E7009F757D /* EarthImageryGroup */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EarthImageryGroup;
+			sourceTree = "<group>";
+		};
+		FB325881209CB0FE009F757D /* ARGroup */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ARGroup;
+			sourceTree = "<group>";
+		};
 		FB4ED8BA20939F5A0084C686 = {
 			isa = PBXGroup;
 			children = (
@@ -137,10 +181,10 @@
 			isa = PBXGroup;
 			children = (
 				FB9786CB20976B5D00D46F8B /* LandingViewController.swift */,
-				FB9786CF2097A86200D46F8B /* GalleryController.swift */,
-				FB9786E8209A197300D46F8B /* SearchResultController.swift */,
-				FBF12742209B6E02003A2516 /* GalleryZoomViewController.swift */,
-				FBF12744209B9EB0003A2516 /* RoverMakerController.swift */,
+				FB32587E209CB0CD009F757D /* GalleryGroup */,
+				FB32587F209CB0DC009F757D /* RoverGroup */,
+				FB325880209CB0E7009F757D /* EarthImageryGroup */,
+				FB325881209CB0FE009F757D /* ARGroup */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -350,6 +394,7 @@
 				FB9786E9209A197300D46F8B /* SearchResultController.swift in Sources */,
 				FB9786D82097C91100D46F8B /* Result.swift in Sources */,
 				FBF12743209B6E02003A2516 /* GalleryZoomViewController.swift in Sources */,
+				FB325883209CB18A009F757D /* RoverPageController.swift in Sources */,
 				FB9786D02097A86200D46F8B /* GalleryController.swift in Sources */,
 				FB9786E22099026F00D46F8B /* ImageData.swift in Sources */,
 				FB9786E42099EA0800D46F8B /* PendingOperations.swift in Sources */,
@@ -362,7 +407,10 @@
 				FBF12749209BA286003A2516 /* NASARover.swift in Sources */,
 				FB9786E02098D01600D46F8B /* GalleryImageOperation.swift in Sources */,
 				FBF12745209B9EB1003A2516 /* RoverMakerController.swift in Sources */,
+				FB325889209CB2B5009F757D /* EditImageController.swift in Sources */,
 				FB9786D22097ABCE00D46F8B /* GalleryDatasource.swift in Sources */,
+				FB325887209CB292009F757D /* RoverZoomController.swift in Sources */,
+				FB325885209CB264009F757D /* RoverViewerController.swift in Sources */,
 				FBF1274E209BD4C9003A2516 /* MarsRoverOperation.swift in Sources */,
 				FB9786CC20976B5D00D46F8B /* LandingViewController.swift in Sources */,
 				FB9786E72099EFD600D46F8B /* GalleryCellViewModel.swift in Sources */,

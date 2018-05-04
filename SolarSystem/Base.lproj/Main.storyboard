@@ -497,6 +497,7 @@
                                         <connections>
                                             <outlet property="imageID" destination="Hzg-fU-lvL" id="iWp-ab-2U6"/>
                                             <outlet property="imageView" destination="cS1-3M-oi1" id="kal-zK-UwS"/>
+                                            <segue destination="HoR-jg-3UR" kind="show" identifier="showRover" id="gaI-lV-PKu"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -523,6 +524,230 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FrI-15-JzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="473" y="682"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HGn-aC-AtS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HoR-jg-3UR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aKP-Tk-SBP">
+                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mxB-Np-gNL" kind="relationship" relationship="rootViewController" id="lp1-3x-ecw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pYZ-hn-8xJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1248" y="681"/>
+        </scene>
+        <!--Rover Page Controller-->
+        <scene sceneID="EcE-UN-vG0">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="mxB-Np-gNL" customClass="RoverPageController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qVP-ub-FgB">
+                        <barButtonItem key="leftBarButtonItem" title="Back" style="done" id="euV-3y-61m">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="mxB-Np-gNL" id="yfU-tF-58n"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="O2B-yd-iO3">
+                            <connections>
+                                <action selector="editImage:" destination="mxB-Np-gNL" id="CsC-mV-KRj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="waX-QW-P1s" kind="unwind" identifier="roverUnwindSegue" unwindAction="roverUnwindToVC1WithSegue:" id="bfF-Ex-j2K"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ucc-wf-KaG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="waX-QW-P1s" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1929" y="681"/>
+        </scene>
+        <!--Rover Viewer Controller-->
+        <scene sceneID="cxQ-c2-q3h">
+            <objects>
+                <viewController storyboardIdentifier="RoverViewerController" id="Hn2-DI-IZb" customClass="RoverViewerController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bLW-ag-jt6">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9wT-Ov-dDl">
+                                <rect key="frame" x="0.0" y="120" width="768" height="804"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0zB-05-qdm" appends="YES" id="99E-tP-ns5"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="9wT-Ov-dDl" firstAttribute="top" secondItem="h3q-OF-079" secondAttribute="top" constant="100" id="Ji7-G7-17Z"/>
+                            <constraint firstItem="h3q-OF-079" firstAttribute="bottom" secondItem="9wT-Ov-dDl" secondAttribute="bottom" constant="100" id="gSZ-R8-xFD"/>
+                            <constraint firstItem="9wT-Ov-dDl" firstAttribute="leading" secondItem="h3q-OF-079" secondAttribute="leading" id="kpg-2K-k3y"/>
+                            <constraint firstItem="9wT-Ov-dDl" firstAttribute="trailing" secondItem="h3q-OF-079" secondAttribute="trailing" id="pp7-lz-qic"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h3q-OF-079"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="9wT-Ov-dDl" id="QRo-uY-c7y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wp-mi-sls" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="0zB-05-qdm">
+                    <connections>
+                        <action selector="tappedImageView:" destination="Hn2-DI-IZb" id="tL3-rl-FEV"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2671" y="681"/>
+        </scene>
+        <!--Rover Zoom Controller-->
+        <scene sceneID="pc1-Ht-UFH">
+            <objects>
+                <viewController storyboardIdentifier="RoverZoomController" id="yCB-U7-KR1" customClass="RoverZoomController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MEm-d7-VnU">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ViS-fk-wL8">
+                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                                <subviews>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U6E-AR-FrM">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="aae-QL-leh" appends="YES" id="r99-SX-Lin"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="U6E-AR-FrM" firstAttribute="centerX" secondItem="ViS-fk-wL8" secondAttribute="centerX" id="7ot-Qu-jEq"/>
+                                    <constraint firstAttribute="trailing" secondItem="U6E-AR-FrM" secondAttribute="trailing" id="BCF-Lj-4AS"/>
+                                    <constraint firstItem="U6E-AR-FrM" firstAttribute="leading" secondItem="ViS-fk-wL8" secondAttribute="leading" id="Cbw-vd-V4a"/>
+                                    <constraint firstItem="U6E-AR-FrM" firstAttribute="centerY" secondItem="ViS-fk-wL8" secondAttribute="centerY" id="epQ-4e-Rk6"/>
+                                    <constraint firstAttribute="bottom" secondItem="U6E-AR-FrM" secondAttribute="bottom" id="km7-q1-huL"/>
+                                    <constraint firstItem="U6E-AR-FrM" firstAttribute="top" secondItem="ViS-fk-wL8" secondAttribute="top" id="r4o-eW-lmz"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ViS-fk-wL8" firstAttribute="leading" secondItem="Fah-7I-Qn8" secondAttribute="leading" id="HiX-uF-Hou"/>
+                            <constraint firstItem="ViS-fk-wL8" firstAttribute="top" secondItem="Fah-7I-Qn8" secondAttribute="top" id="sBD-Nt-kfW"/>
+                            <constraint firstItem="ViS-fk-wL8" firstAttribute="trailing" secondItem="Fah-7I-Qn8" secondAttribute="trailing" id="tPi-UI-vbb"/>
+                            <constraint firstItem="ViS-fk-wL8" firstAttribute="bottom" secondItem="Fah-7I-Qn8" secondAttribute="bottom" id="vjI-cF-pZ2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Fah-7I-Qn8"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="U6E-AR-FrM" id="qWP-k3-IIT"/>
+                        <outlet property="scrollView" destination="ViS-fk-wL8" id="MbJ-yi-89R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="30F-gI-yQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="aae-QL-leh">
+                    <connections>
+                        <action selector="imageViewTapped:" destination="yCB-U7-KR1" id="Z23-XB-cgG"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2670" y="1453"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="P1r-Qb-V0q">
+            <objects>
+                <navigationController storyboardIdentifier="EditVCNavController" automaticallyAdjustsScrollViewInsets="NO" id="FhA-Pc-U1c" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wPW-DC-CAq">
+                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Tp6-lt-7k4" kind="relationship" relationship="rootViewController" id="NWj-XN-PHh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oeq-8b-wXN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3539" y="1453"/>
+        </scene>
+        <!--Post Card Maker-->
+        <scene sceneID="43p-GY-M7d">
+            <objects>
+                <viewController storyboardIdentifier="EditImageController" id="Tp6-lt-7k4" customClass="EditImageController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DVN-nm-vVy">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HCF-1M-5Vc" customClass="JLStickerImageView" customModule="JLStickerTextView">
+                                <rect key="frame" x="0.0" y="164" width="768" height="760"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0S-me-R6K">
+                                <rect key="frame" x="726" y="982" width="22" height="22"/>
+                                <connections>
+                                    <action selector="addTextField:" destination="Tp6-lt-7k4" eventType="touchUpInside" id="r0X-dW-ntH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsc-LV-9F7">
+                                <rect key="frame" x="20" y="974" width="43" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveImage:" destination="Tp6-lt-7k4" eventType="touchUpInside" id="V2S-my-G30"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Kcl-rt-M1k" firstAttribute="bottom" secondItem="d0S-me-R6K" secondAttribute="bottom" constant="20" id="1Fv-cO-EsL"/>
+                            <constraint firstItem="Kcl-rt-M1k" firstAttribute="bottom" secondItem="HCF-1M-5Vc" secondAttribute="bottom" constant="100" id="71d-xw-lda"/>
+                            <constraint firstItem="Kcl-rt-M1k" firstAttribute="trailing" secondItem="gsc-LV-9F7" secondAttribute="trailing" constant="705" id="IHj-gY-iEm"/>
+                            <constraint firstItem="gsc-LV-9F7" firstAttribute="top" secondItem="HCF-1M-5Vc" secondAttribute="bottom" constant="50" id="M83-Ah-jP7"/>
+                            <constraint firstItem="HCF-1M-5Vc" firstAttribute="top" secondItem="Kcl-rt-M1k" secondAttribute="top" constant="100" id="PM1-5x-E5n"/>
+                            <constraint firstItem="gsc-LV-9F7" firstAttribute="leading" secondItem="Kcl-rt-M1k" secondAttribute="leading" constant="20" id="SQQ-u4-EjT"/>
+                            <constraint firstItem="Kcl-rt-M1k" firstAttribute="trailing" secondItem="d0S-me-R6K" secondAttribute="trailing" constant="20" id="efk-A0-h2M"/>
+                            <constraint firstItem="HCF-1M-5Vc" firstAttribute="leading" secondItem="Kcl-rt-M1k" secondAttribute="leading" id="mfg-iN-8pP"/>
+                            <constraint firstItem="Kcl-rt-M1k" firstAttribute="bottom" secondItem="gsc-LV-9F7" secondAttribute="bottom" constant="20" id="piN-kR-leU"/>
+                            <constraint firstItem="d0S-me-R6K" firstAttribute="leading" secondItem="Kcl-rt-M1k" secondAttribute="leading" constant="726" id="qFZ-dd-ebq"/>
+                            <constraint firstItem="d0S-me-R6K" firstAttribute="top" secondItem="HCF-1M-5Vc" secondAttribute="bottom" constant="58" id="vwd-zH-g41"/>
+                            <constraint firstItem="HCF-1M-5Vc" firstAttribute="trailing" secondItem="Kcl-rt-M1k" secondAttribute="trailing" id="wfc-aM-Zps"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kcl-rt-M1k"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Post Card Maker" id="lGY-AX-WOj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SxF-6Z-uNv">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancel:" destination="Tp6-lt-7k4" id="qkx-Pp-l0Q"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="6fl-tJ-BbC">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="sendImage:" destination="Tp6-lt-7k4" id="ht0-w9-0mC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="HCF-1M-5Vc" id="PGf-dM-fBe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UeQ-jC-eXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4359" y="1453"/>
         </scene>
     </scenes>
     <resources>
