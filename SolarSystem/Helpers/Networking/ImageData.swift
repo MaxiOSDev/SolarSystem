@@ -17,7 +17,7 @@ class ImageData {
     var image: UIImage?
     var videoURL: URL?
     
-    func add(with url: URL, image: UIImage, imageState: ImageState){
+    func add(with url: URL?, image: UIImage, imageState: ImageState){
         self.imageURL = url
         self.image = image
         self.imageState = imageState

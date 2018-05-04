@@ -12,7 +12,6 @@ import UIKit
 struct GalleryCellViewModel {
     var image: UIImage
     let title: String
-    
 }
 
 extension GalleryCellViewModel {

@@ -13,14 +13,28 @@ class LandingViewController: UIViewController {
     // MARK: - IBOutlets
     @IBAction func unwindToVC1(segue: UIStoryboardSegue) {}
     
+    let client = NASAClient()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showRoverMakerVC" {
+            let roverVC = segue.destination as! RoverMakerController
+            client.fetchRover("curiosity") { [weak self] result in
+                switch result {
+                case .success(let results):
+                    
+                    roverVC.roverData = results
+                case .failure(let error):
+                    print("Error here: \(error.localizedDescription)")
+                }
+            }
+        }
     }
 }
 

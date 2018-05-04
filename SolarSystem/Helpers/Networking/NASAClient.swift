@@ -52,6 +52,16 @@ class NASAClient: APIClient {
         }
     }
     
+    func fetchRover(_ rover: String, completion: @escaping (Result<NASARover, APIError>) -> Void) {
+        let endpoint = RoverEndpoint.rover(name: rover)
+        let request = endpoint.request
+        print("Request: \(request)")
+        fetch(with: request, decode: { (json) -> NASARover? in
+            guard let results = json as? NASARover else { return nil}
+            return results
+        }, completion: completion)
+    }
+    
     // Not used but will be.
     func parseNextPage(with link: [GalleryLinks], completion: @escaping (Result<GallerySearchResult, APIError>) -> Void) {
         for url in link {

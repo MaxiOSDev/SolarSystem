@@ -28,6 +28,12 @@
 		FB9786E72099EFD600D46F8B /* GalleryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9786E62099EFD600D46F8B /* GalleryCellViewModel.swift */; };
 		FB9786E9209A197300D46F8B /* SearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9786E8209A197300D46F8B /* SearchResultController.swift */; };
 		FBF12743209B6E02003A2516 /* GalleryZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF12742209B6E02003A2516 /* GalleryZoomViewController.swift */; };
+		FBF12745209B9EB1003A2516 /* RoverMakerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF12744209B9EB0003A2516 /* RoverMakerController.swift */; };
+		FBF12747209BA124003A2516 /* RoverDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF12746209BA124003A2516 /* RoverDatasource.swift */; };
+		FBF12749209BA286003A2516 /* NASARover.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF12748209BA286003A2516 /* NASARover.swift */; };
+		FBF1274C209BD373003A2516 /* RoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1274B209BD373003A2516 /* RoverCell.swift */; };
+		FBF1274E209BD4C9003A2516 /* MarsRoverOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1274D209BD4C9003A2516 /* MarsRoverOperation.swift */; };
+		FBF12750209BDB05003A2516 /* RoverCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1274F209BDB05003A2516 /* RoverCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +62,12 @@
 		FB9786E62099EFD600D46F8B /* GalleryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCellViewModel.swift; sourceTree = "<group>"; };
 		FB9786E8209A197300D46F8B /* SearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultController.swift; sourceTree = "<group>"; };
 		FBF12742209B6E02003A2516 /* GalleryZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryZoomViewController.swift; sourceTree = "<group>"; };
+		FBF12744209B9EB0003A2516 /* RoverMakerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverMakerController.swift; sourceTree = "<group>"; };
+		FBF12746209BA124003A2516 /* RoverDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverDatasource.swift; sourceTree = "<group>"; };
+		FBF12748209BA286003A2516 /* NASARover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASARover.swift; sourceTree = "<group>"; };
+		FBF1274B209BD373003A2516 /* RoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverCell.swift; sourceTree = "<group>"; };
+		FBF1274D209BD4C9003A2516 /* MarsRoverOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverOperation.swift; sourceTree = "<group>"; };
+		FBF1274F209BDB05003A2516 /* RoverCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +140,7 @@
 				FB9786CF2097A86200D46F8B /* GalleryController.swift */,
 				FB9786E8209A197300D46F8B /* SearchResultController.swift */,
 				FBF12742209B6E02003A2516 /* GalleryZoomViewController.swift */,
+				FBF12744209B9EB0003A2516 /* RoverMakerController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -144,8 +157,8 @@
 		FB9786BE2097466300D46F8B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FBF1274A209BD352003A2516 /* CellViews */,
 				FB9786E52099EFB500D46F8B /* ViewModels */,
-				FB9786CD20976C6800D46F8B /* GalleryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				FB9786D12097ABCE00D46F8B /* GalleryDatasource.swift */,
+				FBF12746209BA124003A2516 /* RoverDatasource.swift */,
 			);
 			path = Datasources;
 			sourceTree = "<group>";
@@ -183,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				FB9786D32097C09000D46F8B /* NASAGallery.swift */,
+				FBF12748209BA286003A2516 /* NASARover.swift */,
 			);
 			path = Codable;
 			sourceTree = "<group>";
@@ -192,6 +207,7 @@
 			children = (
 				FB9786DB2097CF1900D46F8B /* NASAGalleryOperation.swift */,
 				FB9786DF2098D01600D46F8B /* GalleryImageOperation.swift */,
+				FBF1274D209BD4C9003A2516 /* MarsRoverOperation.swift */,
 				FB9786E32099EA0700D46F8B /* PendingOperations.swift */,
 			);
 			path = Operations;
@@ -201,8 +217,18 @@
 			isa = PBXGroup;
 			children = (
 				FB9786E62099EFD600D46F8B /* GalleryCellViewModel.swift */,
+				FBF1274F209BDB05003A2516 /* RoverCellViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FBF1274A209BD352003A2516 /* CellViews */ = {
+			isa = PBXGroup;
+			children = (
+				FB9786CD20976C6800D46F8B /* GalleryCell.swift */,
+				FBF1274B209BD373003A2516 /* RoverCell.swift */,
+			);
+			path = CellViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,14 +353,20 @@
 				FB9786D02097A86200D46F8B /* GalleryController.swift in Sources */,
 				FB9786E22099026F00D46F8B /* ImageData.swift in Sources */,
 				FB9786E42099EA0800D46F8B /* PendingOperations.swift in Sources */,
+				FBF12750209BDB05003A2516 /* RoverCellViewModel.swift in Sources */,
 				FB9786C72097506800D46F8B /* APIClient.swift in Sources */,
+				FBF12747209BA124003A2516 /* RoverDatasource.swift in Sources */,
 				FB9786D62097C6BF00D46F8B /* Endpoint.swift in Sources */,
 				FB9786CE20976C6800D46F8B /* GalleryCell.swift in Sources */,
 				FB9786D42097C09000D46F8B /* NASAGallery.swift in Sources */,
+				FBF12749209BA286003A2516 /* NASARover.swift in Sources */,
 				FB9786E02098D01600D46F8B /* GalleryImageOperation.swift in Sources */,
+				FBF12745209B9EB1003A2516 /* RoverMakerController.swift in Sources */,
 				FB9786D22097ABCE00D46F8B /* GalleryDatasource.swift in Sources */,
+				FBF1274E209BD4C9003A2516 /* MarsRoverOperation.swift in Sources */,
 				FB9786CC20976B5D00D46F8B /* LandingViewController.swift in Sources */,
 				FB9786E72099EFD600D46F8B /* GalleryCellViewModel.swift in Sources */,
+				FBF1274C209BD373003A2516 /* RoverCell.swift in Sources */,
 				FB9786DC2097CF1900D46F8B /* NASAGalleryOperation.swift in Sources */,
 				FB4ED8C720939F5B0084C686 /* AppDelegate.swift in Sources */,
 				FB9786DA2097CC5700D46F8B /* NASAClient.swift in Sources */,

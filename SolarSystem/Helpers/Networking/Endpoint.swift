@@ -26,7 +26,7 @@ extension Endpoint {
     }
     
     var request: URLRequest {
-        let url = urlComponents.url!
+        guard let url = urlComponents.url else { fatalError() }
         print("URL!: \(url)")
         return URLRequest(url: url)
     }
@@ -59,7 +59,35 @@ extension Gallery: Endpoint {
     }
 }
 
+enum RoverEndpoint {
+    case rover(name: String)
+}
 
+extension RoverEndpoint: Endpoint {
+    var base: String {
+        return "https://api.nasa.gov"
+    }
+    
+    var path: String {
+        switch self {
+        case .rover(let name): return "/mars-photos/api/v1/rovers/\(name)/photos"
+        }
+    }
+    
+    var queryItems: [URLQueryItem] {
+        switch self {
+        case .rover:
+        var result = [URLQueryItem]()
+        let sol = URLQueryItem(name: "sol", value: "10")
+        let API_KEY = URLQueryItem(name: "api_key", value: "FibfgEAUvuS0knr5woA5aNckz4QWk12iB5KHkBKr")
+        result.append(sol)
+        result.append(API_KEY)
+        return result
+        }
+    }
+    
+    
+}
 
 
 

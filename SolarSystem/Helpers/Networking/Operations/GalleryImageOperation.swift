@@ -124,7 +124,6 @@ class GalleryJSONOperation: Operation {
                         }
                     }
                 }
-
                 
                 self.isExecuting = false
                 self.isFinished = true

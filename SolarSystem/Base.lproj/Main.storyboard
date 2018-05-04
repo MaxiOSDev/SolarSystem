@@ -77,6 +77,9 @@
                                             <button opaque="NO" tag="1" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krx-Dh-7DM">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="309"/>
                                                 <state key="normal" backgroundImage="marsRover"/>
+                                                <connections>
+                                                    <segue destination="cV5-ce-5uI" kind="show" identifier="showRoverMakerVC" id="N72-Iq-XMl"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rover Postcard Maker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTt-ul-4a0">
                                                 <rect key="frame" x="8" y="8" width="351" height="21"/>
@@ -184,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D0b-fJ-BY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="490.625" y="-138.28125"/>
+            <point key="canvasLocation" x="474" y="-93"/>
         </scene>
         <!--Gallery Controller-->
         <scene sceneID="mGC-5j-2Hu">
@@ -410,6 +413,116 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4459" y="-122"/>
+        </scene>
+        <!--Mars Rover Maker-->
+        <scene sceneID="mTO-25-hhq">
+            <objects>
+                <viewController id="cV5-ce-5uI" customClass="RoverMakerController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AhT-R5-caa">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jOy-31-zKK">
+                                <rect key="frame" x="0.0" y="20" width="768" height="29"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <segments>
+                                    <segment title="Curiosity"/>
+                                    <segment title="Opportunity"/>
+                                    <segment title="Spirit"/>
+                                </segments>
+                                <connections>
+                                    <action selector="roverSelected:" destination="cV5-ce-5uI" eventType="valueChanged" id="7rv-gn-Fjt"/>
+                                </connections>
+                            </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MQR-w2-kgv">
+                                <rect key="frame" x="0.0" y="48" width="768" height="976"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WRY-L7-aaK">
+                                    <size key="itemSize" width="350" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RoverCell" id="Yv2-x0-C2O" customClass="RoverCell" customModule="SolarSystem" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cS1-3M-oi1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ec8-pp-uWW">
+                                                    <rect key="frame" x="0.0" y="175.5" width="350" height="24.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milky Way's Star Birth Party" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1D-5g-qav">
+                                                            <rect key="frame" x="8" y="0.0" width="157" height="14.5"/>
+                                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="NASA/JPL-Caltech" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzg-fU-lvL">
+                                                            <rect key="frame" x="8" y="14.5" width="74" height="10"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Hzg-fU-lvL" firstAttribute="leading" secondItem="ec8-pp-uWW" secondAttribute="leading" constant="8" id="7kC-Uv-PAJ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Hzg-fU-lvL" secondAttribute="bottom" id="8AI-s0-kVj"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hzg-fU-lvL" secondAttribute="trailing" constant="20" symbolic="YES" id="8K0-Kz-QF8"/>
+                                                        <constraint firstItem="v1D-5g-qav" firstAttribute="leading" secondItem="ec8-pp-uWW" secondAttribute="leading" constant="8" id="O2n-LD-uYf"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="v1D-5g-qav" secondAttribute="trailing" constant="20" symbolic="YES" id="OtH-j7-w1Z"/>
+                                                        <constraint firstItem="Hzg-fU-lvL" firstAttribute="top" secondItem="v1D-5g-qav" secondAttribute="bottom" id="dJr-60-A8m"/>
+                                                        <constraint firstAttribute="height" constant="24.5" id="n9S-KF-age"/>
+                                                        <constraint firstItem="v1D-5g-qav" firstAttribute="top" secondItem="ec8-pp-uWW" secondAttribute="top" id="nFR-MM-eJ3"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="cS1-3M-oi1" secondAttribute="trailing" id="Ngc-gF-zWY"/>
+                                            <constraint firstItem="cS1-3M-oi1" firstAttribute="leading" secondItem="Yv2-x0-C2O" secondAttribute="leading" id="TPb-qk-z3g"/>
+                                            <constraint firstItem="cS1-3M-oi1" firstAttribute="top" secondItem="Yv2-x0-C2O" secondAttribute="top" id="Wrj-5q-Sv4"/>
+                                            <constraint firstAttribute="bottom" secondItem="cS1-3M-oi1" secondAttribute="bottom" id="XJB-3v-MCM"/>
+                                            <constraint firstItem="ec8-pp-uWW" firstAttribute="leading" secondItem="Yv2-x0-C2O" secondAttribute="leading" id="eRB-Po-j9s"/>
+                                            <constraint firstAttribute="trailing" secondItem="ec8-pp-uWW" secondAttribute="trailing" id="tnm-hr-l3H"/>
+                                            <constraint firstAttribute="bottom" secondItem="ec8-pp-uWW" secondAttribute="bottom" id="znT-VV-59l"/>
+                                        </constraints>
+                                        <size key="customSize" width="350" height="200"/>
+                                        <connections>
+                                            <outlet property="imageID" destination="Hzg-fU-lvL" id="iWp-ab-2U6"/>
+                                            <outlet property="imageView" destination="cS1-3M-oi1" id="kal-zK-UwS"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MQR-w2-kgv" firstAttribute="leading" secondItem="4mn-Ma-Umz" secondAttribute="leading" id="JSE-kn-sf1"/>
+                            <constraint firstItem="4mn-Ma-Umz" firstAttribute="bottom" secondItem="MQR-w2-kgv" secondAttribute="bottom" id="U1K-SP-tgl"/>
+                            <constraint firstAttribute="trailing" secondItem="MQR-w2-kgv" secondAttribute="trailing" id="UOS-HQ-DuD"/>
+                            <constraint firstItem="4mn-Ma-Umz" firstAttribute="trailing" secondItem="jOy-31-zKK" secondAttribute="trailing" id="UU6-PM-VKl"/>
+                            <constraint firstItem="jOy-31-zKK" firstAttribute="top" secondItem="4mn-Ma-Umz" secondAttribute="top" id="WWZ-5O-Cex"/>
+                            <constraint firstItem="MQR-w2-kgv" firstAttribute="top" secondItem="jOy-31-zKK" secondAttribute="bottom" id="k9o-zb-eMW"/>
+                            <constraint firstItem="jOy-31-zKK" firstAttribute="leading" secondItem="4mn-Ma-Umz" secondAttribute="leading" id="m3u-cO-MmG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4mn-Ma-Umz"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mars Rover Maker" id="Lqt-mv-HKz"/>
+                    <connections>
+                        <outlet property="collectionView" destination="MQR-w2-kgv" id="JqU-dr-Lcj"/>
+                        <outlet property="segmentedControl" destination="jOy-31-zKK" id="d7x-4c-aQt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FrI-15-JzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="473" y="682"/>
         </scene>
     </scenes>
     <resources>
