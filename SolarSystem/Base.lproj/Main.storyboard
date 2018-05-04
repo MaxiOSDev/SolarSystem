@@ -147,6 +147,9 @@
                                             <button opaque="NO" tag="3" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62g-Vg-cF8">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="309"/>
                                                 <state key="normal" backgroundImage="ARLogo"/>
+                                                <connections>
+                                                    <segue destination="HaT-kW-crL" kind="show" id="hpw-qw-omx"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR Solar System" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzC-Nh-WfB">
                                                 <rect key="frame" x="8" y="8" width="351" height="21"/>
@@ -854,6 +857,250 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HTK-zU-D4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-442" y="1397"/>
+        </scene>
+        <!--Solar System-->
+        <scene sceneID="e1t-zo-tTh">
+            <objects>
+                <viewController id="HaT-kW-crL" customClass="ARPlanetController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Arb-J1-r0G">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9VQ-it-csK">
+                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                            </arscnView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vLa-nc-VVT">
+                                <rect key="frame" x="0.0" y="20" width="768" height="29"/>
+                                <segments>
+                                    <segment title="Sun"/>
+                                    <segment title="Mercury"/>
+                                    <segment title="Venus"/>
+                                    <segment title="Earth"/>
+                                    <segment title="Mars"/>
+                                    <segment title="Jupitar"/>
+                                    <segment title="Saturn"/>
+                                    <segment title="Uranus"/>
+                                    <segment title="Neptune"/>
+                                    <segment title="Pluto"/>
+                                </segments>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="planetChosen:" destination="HaT-kW-crL" eventType="valueChanged" id="gUw-Xl-LWB"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9VQ-it-csK" firstAttribute="leading" secondItem="Ld0-x9-M2V" secondAttribute="leading" id="Azu-Oa-LFL"/>
+                            <constraint firstItem="vLa-nc-VVT" firstAttribute="top" secondItem="Ld0-x9-M2V" secondAttribute="top" id="HSR-Um-sHp"/>
+                            <constraint firstItem="Ld0-x9-M2V" firstAttribute="trailing" secondItem="vLa-nc-VVT" secondAttribute="trailing" id="Je0-ud-Cc7"/>
+                            <constraint firstItem="vLa-nc-VVT" firstAttribute="leading" secondItem="Ld0-x9-M2V" secondAttribute="leading" id="Kfk-8X-o2H"/>
+                            <constraint firstItem="9VQ-it-csK" firstAttribute="top" secondItem="Ld0-x9-M2V" secondAttribute="top" id="Vt5-Sa-Uuo"/>
+                            <constraint firstItem="Ld0-x9-M2V" firstAttribute="trailing" secondItem="9VQ-it-csK" secondAttribute="trailing" id="lS5-Sm-rXE"/>
+                            <constraint firstItem="Ld0-x9-M2V" firstAttribute="bottom" secondItem="9VQ-it-csK" secondAttribute="bottom" id="yaB-B0-OFT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ld0-x9-M2V"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Solar System" id="BcO-OF-xCr">
+                        <barButtonItem key="rightBarButtonItem" title="Images" id="HBh-q2-n4R">
+                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imagesBarButton" destination="HBh-q2-n4R" id="Wcb-yy-b4R"/>
+                        <outlet property="sceneView" destination="9VQ-it-csK" id="jlX-dY-Wd5"/>
+                        <outlet property="segmentedControl" destination="vLa-nc-VVT" id="3Sr-nO-bPa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5KZ-8l-txj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="408" y="2114"/>
+        </scene>
+        <!--Planet Gallery Controller-->
+        <scene sceneID="yrZ-50-eVB">
+            <objects>
+                <collectionViewController id="NUf-zR-zjB" customClass="PlanetGalleryController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="awv-EC-vfV">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pam-ft-jFc">
+                            <size key="itemSize" width="350" height="200"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlanetGalleryCell" id="PrI-Sm-Z48" customClass="PlanetGalleryCell" customModule="NASApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oLY-F8-32i">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpm-Hj-yPE">
+                                            <rect key="frame" x="0.0" y="160" width="350" height="40"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place Holder Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxL-gv-p2m">
+                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.66666666669999997" alpha="0.2009310788" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="TxL-gv-p2m" firstAttribute="top" secondItem="hpm-Hj-yPE" secondAttribute="top" id="0I0-GB-Qfs"/>
+                                                <constraint firstAttribute="trailing" secondItem="TxL-gv-p2m" secondAttribute="trailing" id="B39-Hk-Bh5"/>
+                                                <constraint firstAttribute="bottom" secondItem="TxL-gv-p2m" secondAttribute="bottom" id="NGX-bm-lMO"/>
+                                                <constraint firstItem="TxL-gv-p2m" firstAttribute="leading" secondItem="hpm-Hj-yPE" secondAttribute="leading" id="Xzl-Bd-et7"/>
+                                                <constraint firstAttribute="height" constant="40" id="wvx-am-Thh"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="oLY-F8-32i" firstAttribute="top" secondItem="PrI-Sm-Z48" secondAttribute="top" id="1M8-nZ-Gra"/>
+                                    <constraint firstItem="hpm-Hj-yPE" firstAttribute="top" secondItem="PrI-Sm-Z48" secondAttribute="top" priority="250" constant="160" id="5n1-V2-Ahy"/>
+                                    <constraint firstAttribute="bottom" secondItem="oLY-F8-32i" secondAttribute="bottom" id="9MG-8N-w8N"/>
+                                    <constraint firstItem="oLY-F8-32i" firstAttribute="leading" secondItem="PrI-Sm-Z48" secondAttribute="leading" id="NYv-Pi-KZc"/>
+                                    <constraint firstItem="hpm-Hj-yPE" firstAttribute="leading" secondItem="PrI-Sm-Z48" secondAttribute="leading" id="aLD-Jt-uox"/>
+                                    <constraint firstAttribute="trailing" secondItem="hpm-Hj-yPE" secondAttribute="trailing" id="gFP-zN-ZDW"/>
+                                    <constraint firstAttribute="trailing" secondItem="oLY-F8-32i" secondAttribute="trailing" id="hof-43-NVM"/>
+                                    <constraint firstAttribute="bottom" secondItem="hpm-Hj-yPE" secondAttribute="bottom" id="j08-F9-PdV"/>
+                                </constraints>
+                                <size key="customSize" width="350" height="200"/>
+                                <connections>
+                                    <outlet property="imageTitleLabel" destination="TxL-gv-p2m" id="Md1-yg-sMP"/>
+                                    <outlet property="imageView" destination="oLY-F8-32i" id="Ohh-tl-FvQ"/>
+                                    <segue destination="4MO-eg-DTE" kind="show" id="VLg-3l-IeM"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="NUf-zR-zjB" id="bNE-ZR-Fif"/>
+                            <outlet property="delegate" destination="NUf-zR-zjB" id="uW2-9u-JhV"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uIR-wC-bEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1113" y="2113"/>
+        </scene>
+        <!--Planet Gallery Page Controller-->
+        <scene sceneID="Bc0-sG-UWb">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="4MO-eg-DTE" customClass="PlanetGalleryPageController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9sE-X1-85o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1829" y="2113"/>
+        </scene>
+        <!--Planet Gallery Zoom Controller-->
+        <scene sceneID="xKn-5S-GI2">
+            <objects>
+                <viewController storyboardIdentifier="PlanetGalleryZoomController" id="UAG-g6-Wob" customClass="PlanetGalleryZoomController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fm3-Vp-2e2">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2JJ-Yh-yKm">
+                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                                <subviews>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8br-53-wDv">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Ajh-VS-vt0" appends="YES" id="SPQ-N7-zoM"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="8br-53-wDv" firstAttribute="top" secondItem="2JJ-Yh-yKm" secondAttribute="top" id="4C3-5c-7xv"/>
+                                    <constraint firstItem="8br-53-wDv" firstAttribute="leading" secondItem="2JJ-Yh-yKm" secondAttribute="leading" id="7yo-h5-17I"/>
+                                    <constraint firstAttribute="trailing" secondItem="8br-53-wDv" secondAttribute="trailing" id="FdY-s8-2f5"/>
+                                    <constraint firstAttribute="bottom" secondItem="8br-53-wDv" secondAttribute="bottom" id="Wz3-ce-9TH"/>
+                                    <constraint firstItem="8br-53-wDv" firstAttribute="centerY" secondItem="2JJ-Yh-yKm" secondAttribute="centerY" id="ZfM-sX-Aix"/>
+                                    <constraint firstItem="8br-53-wDv" firstAttribute="centerX" secondItem="2JJ-Yh-yKm" secondAttribute="centerX" id="qQh-Cr-StM"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2JJ-Yh-yKm" firstAttribute="leading" secondItem="fm3-Vp-2e2" secondAttribute="leading" id="OAT-z7-OsP"/>
+                            <constraint firstAttribute="trailing" secondItem="2JJ-Yh-yKm" secondAttribute="trailing" id="aDL-rX-iYY"/>
+                            <constraint firstItem="mZC-iT-htV" firstAttribute="bottom" secondItem="2JJ-Yh-yKm" secondAttribute="bottom" id="alu-Xb-svG"/>
+                            <constraint firstItem="2JJ-Yh-yKm" firstAttribute="top" secondItem="mZC-iT-htV" secondAttribute="top" id="d3l-VH-IN6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mZC-iT-htV"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="8br-53-wDv" id="EK5-op-dju"/>
+                        <outlet property="scrollView" destination="2JJ-Yh-yKm" id="Fyl-Ak-eMB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rdP-vL-9zx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Ajh-VS-vt0">
+                    <connections>
+                        <action selector="imageTapped:" destination="UAG-g6-Wob" id="NR5-0V-6Dt"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2591" y="2113"/>
+        </scene>
+        <!--Planet Image Detail Controller-->
+        <scene sceneID="mAq-B5-Kql">
+            <objects>
+                <viewController storyboardIdentifier="PlanetImageDetailController" id="Gdr-bJ-VEw" customClass="PlanetImageDetailController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0wT-ct-tLU">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Ah-6e-ZWa">
+                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ZhS-cq-97l" appends="YES" id="czQ-4v-FRj"/>
+                                </connections>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EkE-9h-AxQ">
+                                <rect key="frame" x="0.0" y="876" width="768" height="148"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="0.20489083899999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ytr-cA-d3q" firstAttribute="bottom" secondItem="6Ah-6e-ZWa" secondAttribute="bottom" id="7L9-xN-dVB"/>
+                            <constraint firstItem="Ytr-cA-d3q" firstAttribute="bottom" secondItem="EkE-9h-AxQ" secondAttribute="bottom" id="XrV-sl-OkH"/>
+                            <constraint firstItem="Ytr-cA-d3q" firstAttribute="trailing" secondItem="6Ah-6e-ZWa" secondAttribute="trailing" id="YFa-We-9GN"/>
+                            <constraint firstItem="6Ah-6e-ZWa" firstAttribute="top" secondItem="Ytr-cA-d3q" secondAttribute="top" id="kud-My-pK0"/>
+                            <constraint firstItem="EkE-9h-AxQ" firstAttribute="top" secondItem="0wT-ct-tLU" secondAttribute="top" constant="876" id="pec-7j-hET"/>
+                            <constraint firstItem="6Ah-6e-ZWa" firstAttribute="leading" secondItem="Ytr-cA-d3q" secondAttribute="leading" id="ss3-Ev-ay6"/>
+                            <constraint firstItem="EkE-9h-AxQ" firstAttribute="leading" secondItem="Ytr-cA-d3q" secondAttribute="leading" id="tZ3-FT-D6q"/>
+                            <constraint firstItem="Ytr-cA-d3q" firstAttribute="trailing" secondItem="EkE-9h-AxQ" secondAttribute="trailing" id="vPr-U2-rC5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ytr-cA-d3q"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="6Ah-6e-ZWa" id="uFw-2u-QvK"/>
+                        <outlet property="textView" destination="EkE-9h-AxQ" id="tqS-I9-4tV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7QD-ps-0hS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ZhS-cq-97l">
+                    <connections>
+                        <action selector="dismissTap:" destination="Gdr-bJ-VEw" id="WOM-B3-2pK"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3329" y="2113"/>
         </scene>
     </scenes>
     <resources>
