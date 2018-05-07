@@ -68,7 +68,7 @@ class PlanetGalleryController: UICollectionViewController {
                     }
                 } else if data.mediaType == "image" {
                     print("\(dataSource.selectedImageUrl)")
-                  //  performSegue(withIdentifier: "pageControllerSegue", sender: self)
+                    performSegue(withIdentifier: "showDetail", sender: self)
                 }
             }
         }
@@ -77,14 +77,25 @@ class PlanetGalleryController: UICollectionViewController {
 
 extension PlanetGalleryController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("Sender here: \(sender)")
-        if let cell = sender as? GalleryCell, let cellIndexPath = collectionView?.indexPath(for: cell) {
-            let pageViewController = segue.destination as! PlanetGalleryPageController
-            
-//            pageViewController.indexOfCurrentPhoto = indexPath.row
-//            for data in dataSource.pageData {
-//                pageViewController.photoLinks = data.collection.items
-//            }
+        if segue.identifier == "showDetail" {
+        let detailVC = segue.destination as! PlanetImageDetailController
+            if let indexPaths = collectionView?.indexPathsForSelectedItems {
+                for indexPath in indexPaths {
+                    for index in dataSource.selectedImageUrl {
+                        for (key, value) in index {
+                            if value == indexPath {
+                                detailVC.url = key
+                                for results in dataSource.pageData {
+                                    let items = results.collection.items[value.row]
+                                    for data in items.data {
+                                        detailVC.textData = data.description
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -22,13 +22,16 @@ class PlanetImageDetailController: UIViewController {
     var photo: GalleryItems!
     var nukeManager = Nuke.Manager.shared
     var textData: String?
+    var url: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Url that was passed: \(url)")
         textView.delegate = self
-
         textView.text = textData
-        
+        if let url = url {
+            nukeManager.loadImage(with: url, into: imageView)
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -52,7 +52,7 @@ class GalleryData {
     var title: String = ""
     var mediaType: String = ""
     var nasaId: String = ""
-    
+    var description: String = ""
     // The following 3 properties stay nil, and do not update. Have no clue what to do now.
     var imageURL: URL? = ImageData.shared.imageURL
     var image: UIImage? = ImageData.shared.image
@@ -63,6 +63,7 @@ class GalleryData {
         case title
         case mediaType = "media_type"
         case nasaId = "nasa_id"
+        case description
     }
     
     required init(from decoder: Decoder) throws {
@@ -70,6 +71,7 @@ class GalleryData {
         title = try values.decode(String.self, forKey: .title)
         mediaType = try values.decode(String.self, forKey: .mediaType)
         nasaId = try values.decode(String.self, forKey: .nasaId)
+        description = try values.decode(String.self, forKey: .description)
     }
 
 }
@@ -80,6 +82,7 @@ extension GalleryData: Decodable, Encodable {
         try container.encode(title, forKey: .title)
         try container.encode(mediaType, forKey: .mediaType)
         try container.encode(nasaId, forKey: .nasaId)
+        try container.encode(description, forKey: .description)
     }
 }
 

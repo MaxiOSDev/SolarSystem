@@ -998,6 +998,9 @@
                             <outlet property="delegate" destination="NUf-zR-zjB" id="uW2-9u-JhV"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <segue destination="Gdr-bJ-VEw" kind="show" identifier="showDetail" id="spH-sd-tWw"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uIR-wC-bEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1012,7 +1015,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Ah-6e-ZWa">
-                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                                <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="ZhS-cq-97l" appends="YES" id="czQ-4v-FRj"/>
