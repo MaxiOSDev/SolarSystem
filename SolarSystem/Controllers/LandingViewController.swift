@@ -31,7 +31,10 @@ class LandingViewController: UIViewController {
                     
                     roverVC.roverData = results
                 case .failure(let error):
-                    print("Error here: \(error.localizedDescription)")
+                    let alertController = UIAlertController(title: "An error occured", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                    alertController.addAction(action)
+                    self.present(alertController, animated: true, completion: nil)
                 }
             }
         }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // API Client I use mainly in every project
 enum APIError: Error {
@@ -36,7 +37,9 @@ extension APIClient {
     typealias JSONTaskCompletionHandler = (Decodable?, APIError?) -> Void
     
     private func decodingTask<T: Decodable>(with request: URLRequest, decodingType: T.Type, completionHandler completion: @escaping JSONTaskCompletionHandler) -> URLSessionDataTask {
-
+        let action = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+        var alertController = UIAlertController(title: "Something went wrong", message: "Please wait and try again", preferredStyle: .alert)
+        alertController.addAction(action)
         let task = session.dataTask(with: request) { data, response, error in
             guard let httpResponse = response as? HTTPURLResponse else {
                 completion(nil, .requestFailed)
@@ -50,12 +53,18 @@ extension APIClient {
                         let genericModel = try JSONDecoder().decode(decodingType, from: data)
                         completion(genericModel, nil)
                     } catch {
+                        alertController.title = APIError.jsonConversionFailure.localizedDescription
+                        alertController.presentInOwnWindow(animated: true, completion: nil)
                         completion(nil, .jsonConversionFailure)
                     }
                 } else {
+                    alertController.title = APIError.invalidData.localizedDescription
+                    alertController.presentInOwnWindow(animated: true, completion: nil)
                     completion(nil, .invalidData)
                 }
             } else {
+                alertController.title = "Error with status code: \(httpResponse.statusCode)"
+                alertController.presentInOwnWindow(animated: true, completion: nil)
                 completion(nil, .responseUnsuccessful)
             }
         }
