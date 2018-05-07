@@ -28,6 +28,7 @@
 		FB4ED8CC20939F5B0084C686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4ED8CA20939F5B0084C686 /* Main.storyboard */; };
 		FB4ED8CE20939F660084C686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB4ED8CD20939F660084C686 /* Assets.xcassets */; };
 		FB4ED8D120939F660084C686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4ED8CF20939F660084C686 /* LaunchScreen.storyboard */; };
+		FB84D2D820A0C4A200BAFCC3 /* SolarSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84D2D720A0C4A200BAFCC3 /* SolarSystemTests.swift */; };
 		FB9786C72097506800D46F8B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9786C62097506800D46F8B /* APIClient.swift */; };
 		FB9786CC20976B5D00D46F8B /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9786CB20976B5D00D46F8B /* LandingViewController.swift */; };
 		FB9786CE20976C6800D46F8B /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9786CD20976C6800D46F8B /* GalleryCell.swift */; };
@@ -51,6 +52,16 @@
 		FBF1274E209BD4C9003A2516 /* MarsRoverOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1274D209BD4C9003A2516 /* MarsRoverOperation.swift */; };
 		FBF12750209BDB05003A2516 /* RoverCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1274F209BDB05003A2516 /* RoverCellViewModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB84D2DA20A0C4A300BAFCC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB4ED8BB20939F5A0084C686 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB4ED8C220939F5A0084C686;
+			remoteInfo = SolarSystem;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2104B03441726241BB4869CA /* Pods-SolarSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolarSystem.release.xcconfig"; path = "Pods/Target Support Files/Pods-SolarSystem/Pods-SolarSystem.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +89,9 @@
 		FB4ED8CD20939F660084C686 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB4ED8D020939F660084C686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB4ED8D220939F660084C686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB84D2D520A0C4A200BAFCC3 /* SolarSystemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolarSystemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB84D2D720A0C4A200BAFCC3 /* SolarSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemTests.swift; sourceTree = "<group>"; };
+		FB84D2D920A0C4A300BAFCC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB9786C62097506800D46F8B /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		FB9786CB20976B5D00D46F8B /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		FB9786CD20976C6800D46F8B /* GalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
@@ -108,6 +122,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				98785F0C8717FBCC89F61809 /* Pods_SolarSystem.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB84D2D220A0C4A200BAFCC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				FB4ED8C520939F5B0084C686 /* SolarSystem */,
+				FB84D2D620A0C4A200BAFCC3 /* SolarSystemTests */,
 				FB4ED8C420939F5B0084C686 /* Products */,
 				F9E847D2E0AD6FA3EAACAC18 /* Pods */,
 				6DBFBBA316E103981EF6575B /* Frameworks */,
@@ -204,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				FB4ED8C320939F5B0084C686 /* SolarSystem.app */,
+				FB84D2D520A0C4A200BAFCC3 /* SolarSystemTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -222,6 +245,15 @@
 				FB4ED8D220939F660084C686 /* Info.plist */,
 			);
 			path = SolarSystem;
+			sourceTree = "<group>";
+		};
+		FB84D2D620A0C4A200BAFCC3 /* SolarSystemTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB84D2D720A0C4A200BAFCC3 /* SolarSystemTests.swift */,
+				FB84D2D920A0C4A300BAFCC3 /* Info.plist */,
+			);
+			path = SolarSystemTests;
 			sourceTree = "<group>";
 		};
 		FB9786BC2097465500D46F8B /* Controllers */ = {
@@ -349,6 +381,24 @@
 			productReference = FB4ED8C320939F5B0084C686 /* SolarSystem.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FB84D2D420A0C4A200BAFCC3 /* SolarSystemTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB84D2DC20A0C4A300BAFCC3 /* Build configuration list for PBXNativeTarget "SolarSystemTests" */;
+			buildPhases = (
+				FB84D2D120A0C4A200BAFCC3 /* Sources */,
+				FB84D2D220A0C4A200BAFCC3 /* Frameworks */,
+				FB84D2D320A0C4A200BAFCC3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB84D2DB20A0C4A300BAFCC3 /* PBXTargetDependency */,
+			);
+			name = SolarSystemTests;
+			productName = SolarSystemTests;
+			productReference = FB84D2D520A0C4A200BAFCC3 /* SolarSystemTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -361,6 +411,10 @@
 				TargetAttributes = {
 					FB4ED8C220939F5A0084C686 = {
 						CreatedOnToolsVersion = 9.3;
+					};
+					FB84D2D420A0C4A200BAFCC3 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = FB4ED8C220939F5A0084C686;
 					};
 				};
 			};
@@ -378,6 +432,7 @@
 			projectRoot = "";
 			targets = (
 				FB4ED8C220939F5A0084C686 /* SolarSystem */,
+				FB84D2D420A0C4A200BAFCC3 /* SolarSystemTests */,
 			);
 		};
 /* End PBXProject section */
@@ -391,6 +446,13 @@
 				FB4ED8CE20939F660084C686 /* Assets.xcassets in Resources */,
 				FB325895209CC03D009F757D /* LocationAnnotationView.xib in Resources */,
 				FB4ED8CC20939F5B0084C686 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB84D2D320A0C4A200BAFCC3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,7 +547,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FB84D2D120A0C4A200BAFCC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB84D2D820A0C4A200BAFCC3 /* SolarSystemTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB84D2DB20A0C4A300BAFCC3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB4ED8C220939F5A0084C686 /* SolarSystem */;
+			targetProxy = FB84D2DA20A0C4A300BAFCC3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FB4ED8CA20939F5B0084C686 /* Main.storyboard */ = {
@@ -659,6 +737,46 @@
 			};
 			name = Release;
 		};
+		FB84D2DD20A0C4A300BAFCC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KEAH2TY547;
+				INFOPLIST_FILE = SolarSystemTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ramirezmax.SolarSystemTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SolarSystem.app/SolarSystem";
+			};
+			name = Debug;
+		};
+		FB84D2DE20A0C4A300BAFCC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KEAH2TY547;
+				INFOPLIST_FILE = SolarSystemTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ramirezmax.SolarSystemTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SolarSystem.app/SolarSystem";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -676,6 +794,15 @@
 			buildConfigurations = (
 				FB4ED8D620939F660084C686 /* Debug */,
 				FB4ED8D720939F660084C686 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB84D2DC20A0C4A300BAFCC3 /* Build configuration list for PBXNativeTarget "SolarSystemTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB84D2DD20A0C4A300BAFCC3 /* Debug */,
+				FB84D2DE20A0C4A300BAFCC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
