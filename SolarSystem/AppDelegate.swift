@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - Comments about profiling with Instruments
 // What I did while profiling was use Time Profiler to see what was going on under the hood on my queues. Alot was going on in the main queue
 // So I took a look, at CFRunLoop. I noticed that alot of work was happening with Core Animation Transform. Scrolling was okay while using Nuke, but it could be better
-// So I subclassed UIView, for an async UIImageView. With the decodedImage, it gets placed back on the main queue, and scrolling is faster now.
+// So I subclassed UIView and the subclass is within the Views group, file name: AsyncImageView.swift, for an async UIImageView. With the decodedImage, it gets placed back on the main queue, and scrolling is faster now.
 
 // I noticed that actually cleared my main queue of alot of work. Way faster and better for the user experience.
 
