@@ -38,7 +38,7 @@ extension APIClient {
     
     private func decodingTask<T: Decodable>(with request: URLRequest, decodingType: T.Type, completionHandler completion: @escaping JSONTaskCompletionHandler) -> URLSessionDataTask {
         let action = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
-        var alertController = UIAlertController(title: "Something went wrong", message: "Please wait and try again", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "An error occured", message: "Please wait and try again", preferredStyle: .alert)
         alertController.addAction(action)
         let task = session.dataTask(with: request) { data, response, error in
             guard let httpResponse = response as? HTTPURLResponse else {

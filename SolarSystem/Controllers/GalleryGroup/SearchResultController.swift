@@ -49,13 +49,10 @@ extension SearchResultController: UICollectionViewDelegate {
                     print("\(dataSource.selectedVideoUrl)")
                     for index in dataSource.selectedVideoUrl {
                         for (key, value) in index {
-                        //    print("Key: \(key), Value: \(value.row)")
                             if value == indexPath {
                                 let videoURL = key
-                          //      print("Video URL \(videoURL)")
                                 let player = AVPlayer(url: videoURL)
                                 let playerViewController = storyboard?.instantiateViewController(withIdentifier: "AVVideoController") as! AVPlayerViewController
-                                //AVPlayerViewController()
                                 playerViewController.player = player
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                     self.present(playerViewController, animated: true) {

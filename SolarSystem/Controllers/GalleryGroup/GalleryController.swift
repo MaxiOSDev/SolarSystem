@@ -126,7 +126,10 @@ extension GalleryController: UITextFieldDelegate, UICollectionViewDelegate {
                         resultVC.dataSource.pageUpdate(with: [results])
                         resultVC.collectionView.reloadData()
                     case .failure(let error):
-                        print(error.localizedDescription)
+                        let alertController = UIAlertController(title: "An error occured", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                        let action = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                        alertController.addAction(action)
+                        self.present(alertController, animated: true, completion: nil)
                     }
                 }
             }

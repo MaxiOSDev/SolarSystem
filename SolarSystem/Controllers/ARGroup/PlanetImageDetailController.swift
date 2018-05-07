@@ -26,7 +26,7 @@ class PlanetImageDetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Url that was passed: \(url)")
+        
         textView.delegate = self
         textView.text = textData
         if let url = url {
