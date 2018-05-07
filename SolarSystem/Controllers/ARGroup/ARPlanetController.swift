@@ -46,7 +46,7 @@ class ARPlanetController: UIViewController, ARSCNViewDelegate {
         sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+    //    sceneView.showsStatistics = true
         
         // Create a new scene
         let scene = SCNScene()
@@ -216,7 +216,16 @@ extension ARPlanetController {
         if segue.identifier == "showPlanetImages" {
             print("Segue identifier is okay")
             if let planetGalleryVC = segue.destination as? PlanetGalleryController {
-
+                client.search(withTerm: self.chosenPlanet!) { [weak self] result in
+                    switch result {
+                    case .success(let results):
+                        planetGalleryVC.dataSource.pageUpdate(with: [results])
+                        
+                        planetGalleryVC.collectionView?.reloadData()
+                    case .failure(let error):
+                        print("Error here: \(error)")
+                    }
+                }
             }
         }
     }

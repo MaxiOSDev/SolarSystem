@@ -13,10 +13,12 @@ class PlanetGalleryPageController: UIPageViewController {
     var photoLinks: [GalleryItems] = []
     var indexOfCurrentPhoto: Int!
     var image: UIImage!
-    
+    var url: URL?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
+        print("Passed in photoLinks: \(photoLinks)")
+        print("Index Of Current Photo: \(indexOfCurrentPhoto)")
         // Do any additional setup after loading the view.
         if let photoViewerController = photoViewerController(with: photoLinks[indexOfCurrentPhoto]) {
             setViewControllers([photoViewerController], direction: .forward, animated: false, completion: nil)
@@ -31,7 +33,7 @@ class PlanetGalleryPageController: UIPageViewController {
     func photoViewerController(with galleryPhoto: GalleryItems) -> PlanetGalleryZoomController? {
         guard let storyboard = storyboard, let zoomViewerController = storyboard.instantiateViewController(withIdentifier: "PlanetGalleryZoomController") as? PlanetGalleryZoomController else { return nil }
         zoomViewerController.photo = galleryPhoto
-        
+        zoomViewerController.url = url
         return zoomViewerController
     }
     

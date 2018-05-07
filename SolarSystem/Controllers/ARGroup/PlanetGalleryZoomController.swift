@@ -17,12 +17,15 @@ class PlanetGalleryZoomController: UIViewController, UIScrollViewDelegate {
     var photo: GalleryItems!
     var image: UIImage!
     var nukeManager = Nuke.Manager.shared
-    
+    var url: URL?
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 10.0
+        if let url = url {
+            nukeManager.loadImage(with: url, into: imageView)
+        }
         
     }
     
@@ -40,7 +43,7 @@ class PlanetGalleryZoomController: UIViewController, UIScrollViewDelegate {
         let detailVC = storyboard.instantiateViewController(withIdentifier: String(describing: PlanetImageDetailController.self)) as! PlanetImageDetailController
         detailVC.modalTransitionStyle = .crossDissolve
         detailVC.photo = photo
-
+        
         self.present(detailVC, animated: true, completion: nil)
     }
     

@@ -18,6 +18,8 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     private var client = NASAClient()
     var selectedImageUrl = [[URL: IndexPath]]()
     var selectedVideoUrl = [[URL: IndexPath]]()
+    var allItems = [[UIImage: IndexPath]]()
+    
     // NukeManager singlton
     let nukeManager = Nuke.Manager.shared
     
@@ -59,7 +61,7 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
                         if data.videoURL != nil {
                             selectedVideoUrl.append([data.videoURL! : indexPath])
                         }
-                        
+                        allItems.append([data.image!: indexPath])
                     }
                 }
             }

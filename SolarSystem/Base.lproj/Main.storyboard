@@ -148,7 +148,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="309"/>
                                                 <state key="normal" backgroundImage="ARLogo"/>
                                                 <connections>
-                                                    <segue destination="HaT-kW-crL" kind="show" id="hpw-qw-omx"/>
+                                                    <segue destination="dry-yU-Dvb" kind="show" id="hpw-qw-omx"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR Solar System" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzC-Nh-WfB">
@@ -861,16 +861,16 @@
         <!--Solar System-->
         <scene sceneID="e1t-zo-tTh">
             <objects>
-                <viewController id="HaT-kW-crL" customClass="ARPlanetController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="currentContext" id="HaT-kW-crL" customClass="ARPlanetController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Arb-J1-r0G">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9VQ-it-csK">
-                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                                <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                             </arscnView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vLa-nc-VVT">
-                                <rect key="frame" x="0.0" y="20" width="768" height="29"/>
+                                <rect key="frame" x="0.0" y="64" width="768" height="29"/>
                                 <segments>
                                     <segment title="Sun"/>
                                     <segment title="Mercury"/>
@@ -904,6 +904,9 @@
                     <navigationItem key="navigationItem" title="Solar System" id="BcO-OF-xCr">
                         <barButtonItem key="rightBarButtonItem" title="Images" id="HBh-q2-n4R">
                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="NUf-zR-zjB" kind="show" identifier="showPlanetImages" id="TIb-we-JMZ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -914,7 +917,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5KZ-8l-txj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="408" y="2114"/>
+            <point key="canvasLocation" x="1173.4375" y="2113.4765625"/>
         </scene>
         <!--Planet Gallery Controller-->
         <scene sceneID="yrZ-50-eVB">
@@ -931,7 +934,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlanetGalleryCell" id="PrI-Sm-Z48" customClass="PlanetGalleryCell" customModule="NASApp" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="PrI-Sm-Z48" customClass="GalleryCell" customModule="SolarSystem" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -961,6 +964,13 @@
                                                 <constraint firstAttribute="height" constant="40" id="wvx-am-Thh"/>
                                             </constraints>
                                         </view>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0zp-kl-ER3">
+                                            <rect key="frame" x="157" y="82" width="37" height="37"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="37" id="OfB-ZG-JqM"/>
+                                                <constraint firstAttribute="height" constant="37" id="b04-am-hOE"/>
+                                            </constraints>
+                                        </activityIndicatorView>
                                     </subviews>
                                 </view>
                                 <constraints>
@@ -968,16 +978,18 @@
                                     <constraint firstItem="hpm-Hj-yPE" firstAttribute="top" secondItem="PrI-Sm-Z48" secondAttribute="top" priority="250" constant="160" id="5n1-V2-Ahy"/>
                                     <constraint firstAttribute="bottom" secondItem="oLY-F8-32i" secondAttribute="bottom" id="9MG-8N-w8N"/>
                                     <constraint firstItem="oLY-F8-32i" firstAttribute="leading" secondItem="PrI-Sm-Z48" secondAttribute="leading" id="NYv-Pi-KZc"/>
+                                    <constraint firstItem="0zp-kl-ER3" firstAttribute="centerX" secondItem="PrI-Sm-Z48" secondAttribute="centerX" id="Roh-Kb-Kkc"/>
                                     <constraint firstItem="hpm-Hj-yPE" firstAttribute="leading" secondItem="PrI-Sm-Z48" secondAttribute="leading" id="aLD-Jt-uox"/>
+                                    <constraint firstItem="0zp-kl-ER3" firstAttribute="centerY" secondItem="PrI-Sm-Z48" secondAttribute="centerY" id="bEg-vt-nH9"/>
                                     <constraint firstAttribute="trailing" secondItem="hpm-Hj-yPE" secondAttribute="trailing" id="gFP-zN-ZDW"/>
                                     <constraint firstAttribute="trailing" secondItem="oLY-F8-32i" secondAttribute="trailing" id="hof-43-NVM"/>
                                     <constraint firstAttribute="bottom" secondItem="hpm-Hj-yPE" secondAttribute="bottom" id="j08-F9-PdV"/>
                                 </constraints>
                                 <size key="customSize" width="350" height="200"/>
                                 <connections>
-                                    <outlet property="imageTitleLabel" destination="TxL-gv-p2m" id="Md1-yg-sMP"/>
-                                    <outlet property="imageView" destination="oLY-F8-32i" id="Ohh-tl-FvQ"/>
-                                    <segue destination="4MO-eg-DTE" kind="show" id="VLg-3l-IeM"/>
+                                    <outlet property="imageView" destination="oLY-F8-32i" id="Dh2-fj-7eH"/>
+                                    <outlet property="progressIndicator" destination="0zp-kl-ER3" id="40W-3N-nud"/>
+                                    <outlet property="titleLabel" destination="TxL-gv-p2m" id="0Le-bj-IAL"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -989,67 +1001,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uIR-wC-bEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1113" y="2113"/>
-        </scene>
-        <!--Planet Gallery Page Controller-->
-        <scene sceneID="Bc0-sG-UWb">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="4MO-eg-DTE" customClass="PlanetGalleryPageController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9sE-X1-85o" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1829" y="2113"/>
-        </scene>
-        <!--Planet Gallery Zoom Controller-->
-        <scene sceneID="xKn-5S-GI2">
-            <objects>
-                <viewController storyboardIdentifier="PlanetGalleryZoomController" id="UAG-g6-Wob" customClass="PlanetGalleryZoomController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fm3-Vp-2e2">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2JJ-Yh-yKm">
-                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
-                                <subviews>
-                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8br-53-wDv">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Ajh-VS-vt0" appends="YES" id="SPQ-N7-zoM"/>
-                                        </connections>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="8br-53-wDv" firstAttribute="top" secondItem="2JJ-Yh-yKm" secondAttribute="top" id="4C3-5c-7xv"/>
-                                    <constraint firstItem="8br-53-wDv" firstAttribute="leading" secondItem="2JJ-Yh-yKm" secondAttribute="leading" id="7yo-h5-17I"/>
-                                    <constraint firstAttribute="trailing" secondItem="8br-53-wDv" secondAttribute="trailing" id="FdY-s8-2f5"/>
-                                    <constraint firstAttribute="bottom" secondItem="8br-53-wDv" secondAttribute="bottom" id="Wz3-ce-9TH"/>
-                                    <constraint firstItem="8br-53-wDv" firstAttribute="centerY" secondItem="2JJ-Yh-yKm" secondAttribute="centerY" id="ZfM-sX-Aix"/>
-                                    <constraint firstItem="8br-53-wDv" firstAttribute="centerX" secondItem="2JJ-Yh-yKm" secondAttribute="centerX" id="qQh-Cr-StM"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="2JJ-Yh-yKm" firstAttribute="leading" secondItem="fm3-Vp-2e2" secondAttribute="leading" id="OAT-z7-OsP"/>
-                            <constraint firstAttribute="trailing" secondItem="2JJ-Yh-yKm" secondAttribute="trailing" id="aDL-rX-iYY"/>
-                            <constraint firstItem="mZC-iT-htV" firstAttribute="bottom" secondItem="2JJ-Yh-yKm" secondAttribute="bottom" id="alu-Xb-svG"/>
-                            <constraint firstItem="2JJ-Yh-yKm" firstAttribute="top" secondItem="mZC-iT-htV" secondAttribute="top" id="d3l-VH-IN6"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="mZC-iT-htV"/>
-                    </view>
-                    <connections>
-                        <outlet property="imageView" destination="8br-53-wDv" id="EK5-op-dju"/>
-                        <outlet property="scrollView" destination="2JJ-Yh-yKm" id="Fyl-Ak-eMB"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rdP-vL-9zx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Ajh-VS-vt0">
-                    <connections>
-                        <action selector="imageTapped:" destination="UAG-g6-Wob" id="NR5-0V-6Dt"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="2591" y="2113"/>
+            <point key="canvasLocation" x="1878.125" y="2112.890625"/>
         </scene>
         <!--Planet Image Detail Controller-->
         <scene sceneID="mAq-B5-Kql">
@@ -1100,7 +1052,25 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3329" y="2113"/>
+            <point key="canvasLocation" x="2649" y="2113"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7mm-on-Y8p">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dry-yU-Dvb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ifU-77-31j">
+                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HaT-kW-crL" kind="relationship" relationship="rootViewController" id="kd9-Lv-Dxb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AXh-wr-diC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="407.8125" y="2113.4765625"/>
         </scene>
     </scenes>
     <resources>

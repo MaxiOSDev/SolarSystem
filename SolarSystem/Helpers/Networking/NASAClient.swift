@@ -69,7 +69,6 @@ class NASAClient: APIClient {
             guard let result = json as? NASAEarthImagery else { return nil }
             return result
         }, completion: completion)
-        
     }
     
     // Not used but will be.
