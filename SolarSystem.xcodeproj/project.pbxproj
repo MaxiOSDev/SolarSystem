@@ -29,6 +29,7 @@
 		FB4ED8CE20939F660084C686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB4ED8CD20939F660084C686 /* Assets.xcassets */; };
 		FB4ED8D120939F660084C686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4ED8CF20939F660084C686 /* LaunchScreen.storyboard */; };
 		FB84D2D820A0C4A200BAFCC3 /* SolarSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84D2D720A0C4A200BAFCC3 /* SolarSystemTests.swift */; };
+		FB84D2E020A0DEF000BAFCC3 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84D2DF20A0DEF000BAFCC3 /* AsyncImageView.swift */; };
 		FB9786C72097506800D46F8B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9786C62097506800D46F8B /* APIClient.swift */; };
 		FB9786CC20976B5D00D46F8B /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9786CB20976B5D00D46F8B /* LandingViewController.swift */; };
 		FB9786CE20976C6800D46F8B /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9786CD20976C6800D46F8B /* GalleryCell.swift */; };
@@ -92,6 +93,7 @@
 		FB84D2D520A0C4A200BAFCC3 /* SolarSystemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolarSystemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB84D2D720A0C4A200BAFCC3 /* SolarSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemTests.swift; sourceTree = "<group>"; };
 		FB84D2D920A0C4A300BAFCC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB84D2DF20A0DEF000BAFCC3 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		FB9786C62097506800D46F8B /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		FB9786CB20976B5D00D46F8B /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		FB9786CD20976C6800D46F8B /* GalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				FB32588E209CBFF3009F757D /* LocationViews */,
 				FBF1274A209BD352003A2516 /* CellViews */,
 				FB9786E52099EFB500D46F8B /* ViewModels */,
+				FB84D2DF20A0DEF000BAFCC3 /* AsyncImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				FB325887209CB292009F757D /* RoverZoomController.swift in Sources */,
 				FB325885209CB264009F757D /* RoverViewerController.swift in Sources */,
 				FB325897209CC08B009F757D /* NASAEarthImagery.swift in Sources */,
+				FB84D2E020A0DEF000BAFCC3 /* AsyncImageView.swift in Sources */,
 				FBF1274E209BD4C9003A2516 /* MarsRoverOperation.swift in Sources */,
 				FB3258A1209CD106009F757D /* PlanetImageDetailController.swift in Sources */,
 				FB9786CC20976B5D00D46F8B /* LandingViewController.swift in Sources */,

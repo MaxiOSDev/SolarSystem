@@ -9,7 +9,7 @@
 import UIKit
 
 class GalleryCell: UICollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: AsyncImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var progressIndicator: UIActivityIndicatorView!
 

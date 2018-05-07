@@ -9,9 +9,8 @@
 import UIKit
 
 class RoverCell: UICollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: AsyncImageView!
     @IBOutlet weak var imageID: UILabel!
-    
     
     func configure(with viewModel: RoverCellViewModel) {
         imageView.image = viewModel.image
