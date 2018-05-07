@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pwW-mF-UiY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RsD-Ib-4so">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -117,7 +117,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="309"/>
                                                 <state key="normal" backgroundImage="satelite"/>
                                                 <connections>
-                                                    <segue destination="Ark-kS-jgA" kind="show" id="nnr-fl-0CI"/>
+                                                    <segue destination="Vda-WB-y6P" kind="show" id="oqX-uu-bo2"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eye In The Sky" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZC-gw-sRx">
@@ -148,7 +148,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="309"/>
                                                 <state key="normal" backgroundImage="ARLogo"/>
                                                 <connections>
-                                                    <segue destination="dry-yU-Dvb" kind="show" id="hpw-qw-omx"/>
+                                                    <segue destination="HaT-kW-crL" kind="show" id="b62-K6-OZN"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR Solar System" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzC-Nh-WfB">
@@ -190,10 +190,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2BM-yo-yqC"/>
                     </view>
+                    <navigationItem key="navigationItem" id="yS7-UM-aze"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D0b-fJ-BY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="474" y="-93"/>
+            <point key="canvasLocation" x="1239.0625" y="-93.1640625"/>
         </scene>
         <!--Gallery Controller-->
         <scene sceneID="mGC-5j-2Hu">
@@ -227,7 +228,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IwW-ny-TAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="tX8-8u-5cw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1970" y="-122"/>
+            <point key="canvasLocation" x="2735.15625" y="-122.46093749999999"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sx7-f7-QaL">
@@ -245,7 +246,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrQ-fS-s7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1247.65625" y="-138.28125"/>
+            <point key="canvasLocation" x="2013.28125" y="-138.28125"/>
         </scene>
         <!--Search Result Controller-->
         <scene sceneID="PmG-eh-20y">
@@ -340,7 +341,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXM-Pp-ujH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="tPm-qR-ivm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3629" y="-122"/>
+            <point key="canvasLocation" x="4394.53125" y="-122.46093749999999"/>
         </scene>
         <!--AV Player View Controller-->
         <scene sceneID="6jT-OH-h84">
@@ -366,7 +367,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPo-AU-rem" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2817.96875" y="-122.46093749999999"/>
+            <point key="canvasLocation" x="3583.59375" y="-122.46093749999999"/>
         </scene>
         <!--Gallery Zoom View Controller-->
         <scene sceneID="5bX-Jt-HV5">
@@ -418,7 +419,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4459" y="-122"/>
+            <point key="canvasLocation" x="5224.21875" y="-122.46093749999999"/>
         </scene>
         <!--Mars Rover Maker-->
         <scene sceneID="mTO-25-hhq">
@@ -429,7 +430,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jOy-31-zKK">
-                                <rect key="frame" x="0.0" y="20" width="768" height="29"/>
+                                <rect key="frame" x="0.0" y="64" width="768" height="29"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="Curiosity"/>
@@ -441,7 +442,7 @@
                                 </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MQR-w2-kgv">
-                                <rect key="frame" x="0.0" y="48" width="768" height="976"/>
+                                <rect key="frame" x="0.0" y="92" width="768" height="932"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WRY-L7-aaK">
                                     <size key="itemSize" width="350" height="200"/>
@@ -529,7 +530,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FrI-15-JzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="473" y="682"/>
+            <point key="canvasLocation" x="493" y="681"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HGn-aC-AtS">
@@ -734,7 +735,7 @@
                         <viewLayoutGuide key="safeArea" id="Kcl-rt-M1k"/>
                     </view>
                     <navigationItem key="navigationItem" title="Post Card Maker" id="lGY-AX-WOj">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SxF-6Z-uNv">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="SxF-6Z-uNv">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancel:" destination="Tp6-lt-7k4" id="qkx-Pp-l0Q"/>
@@ -754,29 +755,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UeQ-jC-eXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4359" y="1453"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="7z4-sc-MSV">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ark-kS-jgA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="eyeIcon" id="W1v-C4-dr3"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R6g-Fw-eA4">
-                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Vda-WB-y6P" kind="relationship" relationship="rootViewController" id="Ywl-X0-zEB"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="41W-x1-Tns" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-442" y="681"/>
         </scene>
         <!--Eye-In-The-Sky-->
         <scene sceneID="yIx-tj-GAc">
@@ -1058,29 +1036,30 @@
             <point key="canvasLocation" x="2649" y="2113"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="7mm-on-Y8p">
+        <scene sceneID="xXk-dc-CnH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dry-yU-Dvb" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RsD-Ib-4so" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ifU-77-31j">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="34E-bO-8XB">
                         <rect key="frame" x="0.0" y="20" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="HaT-kW-crL" kind="relationship" relationship="rootViewController" id="kd9-Lv-Dxb"/>
+                        <segue destination="pwW-mF-UiY" kind="relationship" relationship="rootViewController" id="gZ2-qk-Dvf"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AXh-wr-diC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GaD-xA-DCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="407.8125" y="2113.4765625"/>
+            <point key="canvasLocation" x="473.4375" y="-93.1640625"/>
         </scene>
     </scenes>
     <resources>
         <image name="ARLogo" width="200" height="200"/>
-        <image name="eyeIcon" width="16" height="16"/>
         <image name="galaxy" width="137" height="91"/>
         <image name="marsRover" width="1500" height="1200"/>
         <image name="satelite" width="480" height="253"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
