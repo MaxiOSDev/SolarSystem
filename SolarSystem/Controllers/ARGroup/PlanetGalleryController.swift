@@ -42,6 +42,11 @@ class PlanetGalleryController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        ImageData.shared.imageState = .placeholder
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         for item in dataSource.pageData {
             let image = dataSource.object(array: item.collection.items, at: indexPath)
