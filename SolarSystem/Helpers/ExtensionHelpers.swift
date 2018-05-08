@@ -9,14 +9,6 @@
 import Foundation
 import UIKit
 
-extension UIAlertController {
-    
-    func presentInOwnWindow(animated: Bool, completion: (() -> Void)?) {
-        guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
-        rootVC.present(self, animated: animated, completion: completion)
-    }
-}
-
 
 
 

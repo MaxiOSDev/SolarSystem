@@ -216,7 +216,7 @@ extension ARPlanetController {
         if segue.identifier == "showPlanetImages" {
             print("Segue identifier is okay")
             if let planetGalleryVC = segue.destination as? PlanetGalleryController {
-                client.search(withTerm: self.chosenPlanet!) { [weak self] result in
+                client.search(withTerm: self.chosenPlanet!) { result in
                     switch result {
                     case .success(let results):
                         planetGalleryVC.dataSource.pageUpdate(with: [results])
@@ -226,7 +226,7 @@ extension ARPlanetController {
                         let alertController = UIAlertController(title: "An error occured", message: "\(error.localizedDescription)", preferredStyle: .alert)
                         let action = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
                         alertController.addAction(action)
-                        self?.present(alertController, animated: true, completion: nil)
+                        planetGalleryVC.present(alertController, animated: true, completion: nil)
                     }
                 }
             }

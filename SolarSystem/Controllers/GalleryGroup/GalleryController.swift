@@ -19,6 +19,8 @@ class GalleryController: UIViewController {
     
     var inputText: String = ""
     
+
+    
     // Custom view created to only come up with keyboard
      var customView: UIView = {
         let accessoryView = UIView(frame: .zero)
@@ -59,6 +61,8 @@ class GalleryController: UIViewController {
         self.view.addSubview(tempTextField)
         addAccessory()
     }
+    
+
     
     @IBAction func searchButtonPressed(_ sender: Any) {
         tempTextField.becomeFirstResponder()
@@ -119,7 +123,7 @@ extension GalleryController: UITextFieldDelegate, UICollectionViewDelegate {
         if segue.identifier == "searchSegue" {
             if let navController = segue.destination as? UINavigationController {
                 let resultVC = navController.topViewController as! SearchResultController
-                client.search(withTerm: inputText) {  result in
+                client.search(withTerm: inputText) { result in
                     switch result {
                     case .success(let results):
                     
@@ -129,7 +133,8 @@ extension GalleryController: UITextFieldDelegate, UICollectionViewDelegate {
                         let alertController = UIAlertController(title: "An error occured", message: "\(error.localizedDescription)", preferredStyle: .alert)
                         let action = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
                         alertController.addAction(action)
-                        self.present(alertController, animated: true, completion: nil)
+                        resultVC.present(alertController, animated: true, completion: nil)
+                        print(error.localizedDescription)
                     }
                 }
             }
