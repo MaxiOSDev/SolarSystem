@@ -23,7 +23,6 @@
 		FB3258A1209CD106009F757D /* PlanetImageDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3258A0209CD106009F757D /* PlanetImageDetailController.swift */; };
 		FB3258A4209CD37C009F757D /* PlanetNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3258A3209CD37C009F757D /* PlanetNode.swift */; };
 		FB3258A6209CD3A1009F757D /* PlanetEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3258A5209CD3A1009F757D /* PlanetEnums.swift */; };
-		FB3258A820A09014009F757D /* ExtensionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3258A720A09014009F757D /* ExtensionHelpers.swift */; };
 		FB4ED8C720939F5B0084C686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4ED8C620939F5B0084C686 /* AppDelegate.swift */; };
 		FB4ED8CC20939F5B0084C686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4ED8CA20939F5B0084C686 /* Main.storyboard */; };
 		FB4ED8CE20939F660084C686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB4ED8CD20939F660084C686 /* Assets.xcassets */; };
@@ -83,7 +82,6 @@
 		FB3258A0209CD106009F757D /* PlanetImageDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetImageDetailController.swift; sourceTree = "<group>"; };
 		FB3258A3209CD37C009F757D /* PlanetNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetNode.swift; sourceTree = "<group>"; };
 		FB3258A5209CD3A1009F757D /* PlanetEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetEnums.swift; sourceTree = "<group>"; };
-		FB3258A720A09014009F757D /* ExtensionHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHelpers.swift; sourceTree = "<group>"; };
 		FB4ED8C320939F5B0084C686 /* SolarSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB4ED8C620939F5B0084C686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB4ED8CB20939F5B0084C686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -295,7 +293,6 @@
 			isa = PBXGroup;
 			children = (
 				FB9786C520974EE300D46F8B /* Networking */,
-				FB3258A720A09014009F757D /* ExtensionHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -526,7 +523,6 @@
 				FB3258A4209CD37C009F757D /* PlanetNode.swift in Sources */,
 				FB32589B209CD0C5009F757D /* PlanetGalleryController.swift in Sources */,
 				FB9786D42097C09000D46F8B /* NASAGallery.swift in Sources */,
-				FB3258A820A09014009F757D /* ExtensionHelpers.swift in Sources */,
 				FBF12749209BA286003A2516 /* NASARover.swift in Sources */,
 				FB9786E02098D01600D46F8B /* GalleryImageOperation.swift in Sources */,
 				FBF12745209B9EB1003A2516 /* RoverMakerController.swift in Sources */,
