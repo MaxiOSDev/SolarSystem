@@ -31,4 +31,7 @@ pod "JLStickerTextView", :git =>
 pod 'Alamofire', '~> 4.7'
 
 end
+```
 
+Then simply commit the following command:
+`pod install`
