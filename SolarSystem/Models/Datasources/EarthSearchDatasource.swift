@@ -94,7 +94,7 @@ extension EarthSearchDatasource: MKMapViewDelegate, UISearchResultsUpdating, UIS
             searchMode = false
         }
         
-        let request = MKLocalSearchRequest()
+        let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchBarText
         request.region = mapView.region
         let search = MKLocalSearch(request: request)
@@ -127,8 +127,8 @@ extension EarthSearchDatasource: MKMapViewDelegate, UISearchResultsUpdating, UIS
         }
         
         mapView.addAnnotation(annotation)
-        let span = MKCoordinateSpanMake(0.003, 0.003) // The region
-        let region = MKCoordinateRegionMake(placemark.coordinate, span)
+        let span = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003) // The region
+        let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
         mapView.setRegion(region, animated: true)
     }
     

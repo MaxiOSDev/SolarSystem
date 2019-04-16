@@ -21,7 +21,6 @@ class GalleryDatasource: NSObject, UICollectionViewDataSource {
     
     
     // NukeManager singlton
-    let nukeManager = Nuke.Manager.shared
     
     
     let pendingOperations = PendingOperations()

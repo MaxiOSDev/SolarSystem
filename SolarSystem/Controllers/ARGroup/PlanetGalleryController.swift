@@ -12,7 +12,6 @@ import Nuke
 
 class PlanetGalleryController: UICollectionViewController {
 
-    let nukeManager = Nuke.Manager.shared
     
     
     var chosenPlanet: String? {

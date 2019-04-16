@@ -13,7 +13,6 @@ import CoreLocation
 
 class LocationMapAnnotationView: MKAnnotationView {
     weak var customCalloutView: LocationAnnotatonView?
-    var nukeManager = Nuke.Manager.shared
     override var annotation: MKAnnotation? {
         willSet { customCalloutView?.removeFromSuperview() }
     }
@@ -72,8 +71,8 @@ class LocationMapAnnotationView: MKAnnotationView {
             locationAnnotationView.locationNameLabel.text = EarthImageryData.sharedInstance.name!
             locationAnnotationView.locationAddressLabel.text = EarthImageryData.sharedInstance.address!
 
-            let request = Request(url: URL(string: EarthImageryData.sharedInstance.url!)!)
-            nukeManager.loadImage(with: request, into: locationAnnotationView.imageView)
+            let request = ImageRequest(url: URL(string: EarthImageryData.sharedInstance.url!)!)
+            Nuke.loadImage(with: request, into: locationAnnotationView.imageView)
 
             
             return locationAnnotationView

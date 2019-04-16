@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (4.7.2)
+  - Alamofire (4.8.2)
   - JLStickerTextView (0.1.2)
-  - Nuke (6.1.1)
+  - Nuke (7.6)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -9,7 +9,7 @@ DEPENDENCIES:
   - Nuke
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
     - Nuke
 
@@ -19,14 +19,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   JLStickerTextView:
-    :commit: a037b5ae054de396278cd052263402ef52b5d1c7
+    :commit: 45becbfeb0aa0dc2721fc31d1f900de40e187e78
     :git: https://github.com/luiyezheng/JLStickerTextView.git
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   JLStickerTextView: 99158380c95dc5455568892beb81d0529f3a547d
-  Nuke: bf5d58b2d95ff15cb170c231fe6002d706be77e1
+  Nuke: aa1c6a5919b543debe814530881f2fccb58c26d4
 
 PODFILE CHECKSUM: e80b1abb0bbb23d504439b0aad3ab30cf6e9854a
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.7.0.beta.1

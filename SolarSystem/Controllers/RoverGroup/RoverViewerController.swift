@@ -15,12 +15,12 @@ class RoverViewerController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     var photo: Photo?
-    var nukeManager = Nuke.Manager.shared
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let request = Request(url: URL(string: (photo?.imgSrc)!)!)
-        nukeManager.loadImage(with: request, into: imageView)
+        let request = ImageRequest(url: URL(string: (photo?.imgSrc)!)!)
+        Nuke.loadImage(with: request, into: imageView)
     }
     
     override func didReceiveMemoryWarning() {

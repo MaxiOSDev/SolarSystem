@@ -39,7 +39,7 @@ class RoverPageController: UIPageViewController {
         editVC.photo = photos[indexOfCurrentPhoto]
         let navController = UINavigationController(rootViewController: editVC)
         navController.navigationBar.barTintColor = .black
-        navController.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.present(navController, animated: true, completion: nil)
     }
 }
@@ -47,7 +47,7 @@ class RoverPageController: UIPageViewController {
 extension RoverPageController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        guard let photoVC = viewController as? RoverViewerController, let index = photos.index(of: photoVC.photo!) else { return nil }
+        guard let photoVC = viewController as? RoverViewerController, let index = photos.firstIndex(of: photoVC.photo!) else { return nil }
         
         if index == photos.startIndex {
             return nil
@@ -59,7 +59,7 @@ extension RoverPageController: UIPageViewControllerDataSource {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let photoVC = viewController as? RoverViewerController, let index = photos.index(of: photoVC.photo!) else { return nil }
+        guard let photoVC = viewController as? RoverViewerController, let index = photos.firstIndex(of: photoVC.photo!) else { return nil }
         
         if index == photos.index(before: photos.endIndex) {
             return nil

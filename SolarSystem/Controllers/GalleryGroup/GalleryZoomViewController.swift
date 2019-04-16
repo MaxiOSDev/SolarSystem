@@ -14,7 +14,7 @@ class GalleryZoomViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
     var imageURL: URL?
-    let nukeManager = Nuke.Manager.shared
+
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
@@ -28,8 +28,10 @@ class GalleryZoomViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func parseURL() {
-        guard let url = imageURL else { return }
-        nukeManager.loadImage(with: url, into: imageView)
+
+        if let url = imageURL {
+            Nuke.loadImage(with: url, into: imageView)
+        }
     }
     @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
         dismiss(animated: true, completion: nil)

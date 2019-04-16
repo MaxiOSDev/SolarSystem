@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		98785F0C8717FBCC89F61809 /* Pods_SolarSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8FE5B8767A285325495B796 /* Pods_SolarSystem.framework */; };
+		CE6487D1226638E500811E31 /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6487D0226638E500811E31 /* UIButtonX.swift */; };
+		CE6487D322663F5E00811E31 /* LandingPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6487D222663F5E00811E31 /* LandingPageCell.swift */; };
+		CE6487D5226641D300811E31 /* UIImageViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6487D4226641D300811E31 /* UIImageViewX.swift */; };
 		FB325883209CB18A009F757D /* RoverPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB325882209CB18A009F757D /* RoverPageController.swift */; };
 		FB325885209CB264009F757D /* RoverViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB325884209CB264009F757D /* RoverViewerController.swift */; };
 		FB325887209CB292009F757D /* RoverZoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB325886209CB292009F757D /* RoverZoomController.swift */; };
@@ -66,6 +69,9 @@
 /* Begin PBXFileReference section */
 		2104B03441726241BB4869CA /* Pods-SolarSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolarSystem.release.xcconfig"; path = "Pods/Target Support Files/Pods-SolarSystem/Pods-SolarSystem.release.xcconfig"; sourceTree = "<group>"; };
 		CAFE9BEC214B035C46A4F4C9 /* Pods-SolarSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolarSystem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SolarSystem/Pods-SolarSystem.debug.xcconfig"; sourceTree = "<group>"; };
+		CE6487D0226638E500811E31 /* UIButtonX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
+		CE6487D222663F5E00811E31 /* LandingPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageCell.swift; sourceTree = "<group>"; };
+		CE6487D4226641D300811E31 /* UIImageViewX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewX.swift; sourceTree = "<group>"; };
 		E8FE5B8767A285325495B796 /* Pods_SolarSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SolarSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB325882209CB18A009F757D /* RoverPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverPageController.swift; sourceTree = "<group>"; };
 		FB325884209CB264009F757D /* RoverViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverViewerController.swift; sourceTree = "<group>"; };
@@ -285,6 +291,8 @@
 				FBF1274A209BD352003A2516 /* CellViews */,
 				FB9786E52099EFB500D46F8B /* ViewModels */,
 				FB84D2DF20A0DEF000BAFCC3 /* AsyncImageView.swift */,
+				CE6487D0226638E500811E31 /* UIButtonX.swift */,
+				CE6487D4226641D300811E31 /* UIImageViewX.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,6 +363,7 @@
 			children = (
 				FB9786CD20976C6800D46F8B /* GalleryCell.swift */,
 				FBF1274B209BD373003A2516 /* RoverCell.swift */,
+				CE6487D222663F5E00811E31 /* LandingPageCell.swift */,
 			);
 			path = CellViews;
 			sourceTree = "<group>";
@@ -411,9 +420,11 @@
 				TargetAttributes = {
 					FB4ED8C220939F5A0084C686 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1020;
 					};
 					FB84D2D420A0C4A200BAFCC3 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1020;
 						TestTargetID = FB4ED8C220939F5A0084C686;
 					};
 				};
@@ -482,21 +493,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SolarSystem/Pods-SolarSystem-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/JLStickerTextView/JLStickerTextView.framework",
-				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SolarSystem/Pods-SolarSystem-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JLStickerTextView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SolarSystem/Pods-SolarSystem-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SolarSystem/Pods-SolarSystem-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SolarSystem/Pods-SolarSystem-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -511,6 +517,7 @@
 				FBF12743209B6E02003A2516 /* GalleryZoomViewController.swift in Sources */,
 				FB325883209CB18A009F757D /* RoverPageController.swift in Sources */,
 				FB9786D02097A86200D46F8B /* GalleryController.swift in Sources */,
+				CE6487D1226638E500811E31 /* UIButtonX.swift in Sources */,
 				FB9786E22099026F00D46F8B /* ImageData.swift in Sources */,
 				FB9786E42099EA0800D46F8B /* PendingOperations.swift in Sources */,
 				FBF12750209BDB05003A2516 /* RoverCellViewModel.swift in Sources */,
@@ -523,8 +530,10 @@
 				FB3258A4209CD37C009F757D /* PlanetNode.swift in Sources */,
 				FB32589B209CD0C5009F757D /* PlanetGalleryController.swift in Sources */,
 				FB9786D42097C09000D46F8B /* NASAGallery.swift in Sources */,
+				CE6487D322663F5E00811E31 /* LandingPageCell.swift in Sources */,
 				FBF12749209BA286003A2516 /* NASARover.swift in Sources */,
 				FB9786E02098D01600D46F8B /* GalleryImageOperation.swift in Sources */,
+				CE6487D5226641D300811E31 /* UIImageViewX.swift in Sources */,
 				FBF12745209B9EB1003A2516 /* RoverMakerController.swift in Sources */,
 				FB325889209CB2B5009F757D /* EditImageController.swift in Sources */,
 				FB9786D22097ABCE00D46F8B /* GalleryDatasource.swift in Sources */,
@@ -713,8 +722,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ramirezmax.SolarSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -732,8 +741,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ramirezmax.SolarSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -751,7 +760,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ramirezmax.SolarSystemTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SolarSystem.app/SolarSystem";
 			};
@@ -771,7 +780,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ramirezmax.SolarSystemTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SolarSystem.app/SolarSystem";
 			};

@@ -15,16 +15,18 @@ class RoverZoomController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var imageView: UIImageView!
     
     var photo: Photo!
-    var nukeManager = Nuke.Manager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         scrollView.delegate = self
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 10.0
+
+        if let url = URL(string: photo.imgSrc) {
+            Nuke.loadImage(with: url, into: imageView)
+        }
         
-        let request = Request(url: URL(string: photo.imgSrc)!)
-        nukeManager.loadImage(with: request, into: imageView)
+        
     }
     
     override func didReceiveMemoryWarning() {

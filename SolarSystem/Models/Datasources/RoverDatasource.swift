@@ -18,8 +18,7 @@ class RoverDatasource: NSObject, UICollectionViewDataSource {
     var curiosityData: [Photo]?
     var opporunityData: [Photo]?
     var spiritData: [Photo]?
-    
-    var nukeManager = Nuke.Manager.shared
+
     let pendingOperations = PendingOperations()
     
     init(collectionView: UICollectionView) {
@@ -53,31 +52,42 @@ class RoverDatasource: NSObject, UICollectionViewDataSource {
                     if let curiosityData = curiosityData {
                         let item = curiosityData[indexPath.row]
                         let request = self.makeRequest(with: item.imgSrc)
-                        self.nukeManager.loadImage(with: request!) { (image) in
-                            item.image = image.value
-                            cell.imageView.image = image.value
-                            cell.imageID.text = String(item.id)
-                        }
+//                        Nuke.loadImage(with: request!) { (image) in
+//                            item.image = image.value
+//                            cell.imageView.image = image.value
+//
+//                        }
+                        
+                        Nuke.loadImage(with: request!, into: cell.imageView)
+                         cell.imageID.text = String(item.id)
+                        
                     }
                 } else if segmentedControlIndex == 1 {
                     if let opportunityData = opporunityData {
                         let item = opportunityData[indexPath.row]
                         let request = self.makeRequest(with: item.imgSrc)
-                        self.nukeManager.loadImage(with: request!) { (image) in
-                            item.image = image.value
-                            cell.imageView.image = image.value
-                            cell.imageID.text = String(item.id)
-                        }
+//                        Nuke.loadImage(with: request!) { (image) in
+//                            item.image = image.value
+//                            cell.imageView.image = image.value
+//                            cell.imageID.text = String(item.id)
+//                        }
+                        
+                        Nuke.loadImage(with: request!, into: cell.imageView)
+                        cell.imageID.text = String(item.id)
                     }
                 } else if segmentedControlIndex == 2 {
                     if let spiritData = spiritData {
                         let item = spiritData[indexPath.row]
                         let request = self.makeRequest(with: item.imgSrc)
-                        self.nukeManager.loadImage(with: request!) { (image) in
-                            item.image = image.value
-                            cell.imageView.image = image.value
-                            cell.imageID.text = String(item.id)
-                        }
+                        
+                        
+//                        Nuke.loadImage(with: request!) { (image) in
+//                            item.image = image.value
+//                            cell.imageView.image = image.value
+//                            cell.imageID.text = String(item.id)
+//                        }
+                        Nuke.loadImage(with: request!, into: cell.imageView)
+                        cell.imageID.text = String(item.id)
                     }
                 }
 
@@ -96,9 +106,9 @@ class RoverDatasource: NSObject, UICollectionViewDataSource {
         self.spiritData = data
     }
     
-    func makeRequest(with string: String) -> Request? {
+    func makeRequest(with string: String) -> ImageRequest? {
         guard let url = URL(string: string) else { return nil }
-        return Request(url: url)
+        return ImageRequest(url: url)
     }
     
 //    func downloadImageData(for rover: String, data: Photo, atIndexPath indexPath: IndexPath) {

@@ -20,7 +20,6 @@ class PlanetImageDetailController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     
     var photo: GalleryItems!
-    var nukeManager = Nuke.Manager.shared
     var textData: String?
     var url: URL?
     
@@ -30,7 +29,7 @@ class PlanetImageDetailController: UIViewController {
         textView.delegate = self
         textView.text = textData
         if let url = url {
-            nukeManager.loadImage(with: url, into: imageView)
+            Nuke.loadImage(with: url, into: imageView)
         }
     }
     

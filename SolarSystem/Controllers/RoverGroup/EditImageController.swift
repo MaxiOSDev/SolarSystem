@@ -17,12 +17,11 @@ class EditImageController: UIViewController {
     @IBOutlet weak var imageView: JLStickerImageView!
     
     var photo: Photo!
-    var nukeManager = Nuke.Manager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let request = Request(url: URL(string: (photo?.imgSrc)!)!)
-        nukeManager.loadImage(with: request, into: imageView)
+        let request = ImageRequest(url: URL(string: (photo?.imgSrc)!)!)
+        Nuke.loadImage(with: request, into: imageView)
         
     }
     
@@ -43,9 +42,15 @@ class EditImageController: UIViewController {
     }
     
     @IBAction func saveImage(_ sender: UIButton) {
-        if let imageAttachment = imageView.renderTextOnView(imageView) {
+//        if let imageAttachment = imageView.renderTextOnView(imageView) {
+//            UIImageWriteToSavedPhotosAlbum(imageAttachment, nil, nil, nil)
+//        }
+        
+        if let imageAttachment = imageView.renderContentOnView() {
             UIImageWriteToSavedPhotosAlbum(imageAttachment, nil, nil, nil)
         }
+        
+        
     }
     
     @IBAction func sendImage(_ sender: UIBarButtonItem) {
@@ -65,10 +70,22 @@ class EditImageController: UIViewController {
         mailComposerVC.setToRecipients(["reviewerEmail@teamtreehouse.com"])
         mailComposerVC.setSubject("Sending you an in-app e-mail...")
         mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
-        if let image = imageView.renderTextOnView(imageView) {
-            if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+//        if let image = imageView.renderTextOnView(imageView) {
+//            if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+//                mailComposerVC.addAttachmentData(imageData, mimeType: "image/jpeg", fileName: "\(photo.earthDate).jpg")
+//            }
+//        }
+
+        if let image = imageView.renderContentOnView() {
+            
+//            if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+//                mailComposerVC.addAttachmentData(imageData, mimeType: "image/jpeg", fileName: "\(photo.earthDate).jpg")
+//            }
+            
+            if let imageData = image.jpegData(compressionQuality: 0.75) {
                 mailComposerVC.addAttachmentData(imageData, mimeType: "image/jpeg", fileName: "\(photo.earthDate).jpg")
             }
+  
         }
         
         return mailComposerVC

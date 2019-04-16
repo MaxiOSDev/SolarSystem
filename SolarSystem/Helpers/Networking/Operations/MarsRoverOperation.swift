@@ -14,7 +14,6 @@ class MarsRoverOperation: Operation {
     let rover: String
     let roverData: Photo
     let client: NASAClient
-    private let nukeManager = Nuke.Manager.shared
     
     init(rover: String, roverData: Photo, client: NASAClient) {
         self.rover = rover
@@ -69,11 +68,22 @@ class MarsRoverOperation: Operation {
                 case .success(let results):
                     for data in results.photos {
                         if let url = URL(string: data.imgSrc) {
-                            strongSelf.nukeManager.loadImage(with: url, completion: { (image) in
-                                strongSelf.roverData.image = image.value
+//                            Nuke.loadImage(with: url, completion: { (image) in
+//                                strongSelf.roverData.image = image.value
+//                                strongSelf.roverData.imageState = .downloaded
+//                                strongSelf.roverData.id = data.id
+//                                ImageData.shared.add(with: nil, image: image.value!, imageState: .downloaded)
+//                            })
+                            
+                            ImagePipeline.shared.loadImage(with: url, progress: nil, completion: { (response, pipelineError) in
+                                if let pipelineError = pipelineError {
+                                    print("We failed with pipelineError: \(pipelineError)")
+                                }
+                                
+                                strongSelf.roverData.image = response?.image
                                 strongSelf.roverData.imageState = .downloaded
                                 strongSelf.roverData.id = data.id
-                                ImageData.shared.add(with: nil, image: image.value!, imageState: .downloaded)
+                                ImageData.shared.add(with: nil, image: response!.image, imageState: .downloaded)
                             })
                         }
                     }

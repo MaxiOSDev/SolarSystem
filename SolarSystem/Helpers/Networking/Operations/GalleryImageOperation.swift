@@ -16,7 +16,6 @@ class GalleryJSONOperation: Operation {
     let gallery: GalleryItems
   //  let data: GalleryData
     let client: NASAClient
-    private let nukeManager = Nuke.Manager.shared
     
     init(gallery: GalleryItems, client: NASAClient) {
         self.gallery = gallery
@@ -91,13 +90,22 @@ class GalleryJSONOperation: Operation {
                                 // I also make the imageState .download after I have the image. I thought I had done it.
                                 
                                 data.imageURL = url
-                                self.nukeManager.loadImage(with: url, completion: { (image) in
-                                    data.image = image.value
+//                                Nuke.loadImage(with: url, completion: { (image) in
+//                                    data.image = image.value
+//                                    data.imageState = .downloaded
+//                                    ImageData.shared.add(with: url, image: image.value!, imageState: .downloaded)
+//                                })
+                                
+                                ImagePipeline.shared.loadImage(with: url, progress: nil, completion: { (response, pipelineError) in
+                                    if let pipelineError = pipelineError {
+                                        print("We failed with pipelineError: \(pipelineError)")
+                                    }
+                                    
+                                    data.image = response?.image
                                     data.imageState = .downloaded
-                                    ImageData.shared.add(with: url, image: image.value!, imageState: .downloaded)
+                                    ImageData.shared.add(with: url, image: response!.image, imageState: .downloaded)
                                 })
                                 
-
                                 
                                 
                                 // You can even use a print statment for example print("\(self.data.title),\(self.data.imageURL),\(self.data.image), \(self.data.imageState)")
@@ -114,10 +122,14 @@ class GalleryJSONOperation: Operation {
                                 
                                 
                                 data.imageURL = url
-                                self.nukeManager.loadImage(with: url, completion: { (image) in
-                                    data.image = image.value
+                                ImagePipeline.shared.loadImage(with: url, progress: nil, completion: { (response, pipelineError) in
+                                    if let pipelineError = pipelineError {
+                                        print("We failed with pipelineError: \(pipelineError)")
+                                    }
+                                    
+                                    data.image = response?.image
                                     data.imageState = .downloaded
-                                    ImageData.shared.add(with: url, image: image.value!, imageState: .downloaded)
+                                    ImageData.shared.add(with: url, image: response!.image, imageState: .downloaded)
                                 })
                                 
                             }
